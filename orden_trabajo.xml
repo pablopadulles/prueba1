@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+        <menuitem sequence="0" id="menu_orden_trabajo0" name="Ordenes De Trabajo"
+            />
+
+
+<!--    oci.orden.trabajo   -->
+        <record model="ir.ui.view" id="orden_trabajo_view_tree">
+            <field name="model">oci.orden.trabajo</field>
+            <field name="type">tree</field>
+            <field name="name">orden_trabajo_tree</field>
+        </record>
+        <record model="ir.ui.view" id="orden_trabajo_view_tree2">
+            <field name="model">oci.orden.trabajo</field>
+            <field name="type">tree</field>
+            <field name="name">orden_trabajo_tree2</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_orden_trabajo">
+            <field name="name">Orden de Trabajo Telecom</field>
+            <field name="res_model">oci.orden.trabajo</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_orden_trabajo_view">
+            <field name="sequence" eval="9"/>
+            <field name="view" ref="orden_trabajo_view_tree"/>
+            <field name="act_window" ref="act_orden_trabajo"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_orden_trabajo" action="act_orden_trabajo"
+            parent="menu_orden_trabajo0"/>
+
+<!--    oci.orden.trabajo.cerradas   -->
+        <record model="ir.ui.view" id="orden_trabajo_cerradas_view_tree">
+            <field name="model">oci.orden.trabajo.cerradas</field>
+            <field name="type">tree</field>
+            <field name="name">orden_trabajo_cerradas_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_orden_trabajo_cerradas">
+            <field name="name">Orden de Trabajo Cerradas</field>
+            <field name="res_model">oci.orden.trabajo.cerradas</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_orden_trabajo_cerradas_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="orden_trabajo_cerradas_view_tree"/>
+            <field name="act_window" ref="act_orden_trabajo_cerradas"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_orden_trabajo_cerradas" action="act_orden_trabajo_cerradas"
+            parent="menu_orden_trabajo0"/>
+
+<!--    oci.asignacion.orden.trabajo   -->
+        <record model="ir.ui.view" id="asignacion_orden_trabajo_view_tree">
+            <field name="model">oci.asignacion.orden.trabajo</field>
+            <field name="type">tree</field>
+            <field name="name">asignacion_orden_trabajo_tree</field>
+        </record>
+        <record model="ir.ui.view" id="asignacion_orden_trabajo_view_form">
+            <field name="model">oci.asignacion.orden.trabajo</field>
+            <field name="type">form</field>
+            <field name="name">asignacion_orden_trabajo_form</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_asignacion_orden_trabajo">
+            <field name="name">Asignacion Orden de Trabajo</field>
+            <field name="res_model">oci.asignacion.orden.trabajo</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_asignacion_orden_trabajo_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="asignacion_orden_trabajo_view_tree"/>
+            <field name="act_window" ref="act_asignacion_orden_trabajo"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_asignacion_orden_trabajo_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="asignacion_orden_trabajo_view_form"/>
+            <field name="act_window" ref="act_asignacion_orden_trabajo"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_asignacion_orden_trabajo" action="act_asignacion_orden_trabajo"
+            parent="menu_orden_trabajo0"/>
+
+<!--    Wizard Cargar OT Telecom   -->
+        <record model="ir.ui.view" id="cargar_orden_trabajo_start">
+            <field name="model">wizard.cargar.orden.trabajo.start</field>
+            <field name="type">form</field>
+            <field name="name">cargar_orden_trabajo_start_form</field>
+        </record>
+
+        <record model="ir.action.wizard" id="wizard_cargar_orden_trabajo">
+            <field name="name">Cargar OT Pendientes</field>
+            <field name="wiz_name">oci.wizard.cargar.orden.trabajo</field>
+        </record>
+        <menuitem sequence="10" id="menu_carga_orden_trabajo" action="wizard_cargar_orden_trabajo"
+            parent="menu_orden_trabajo0"/>
+
+<!--    Wizard Cerrar OT Telecom   -->
+        <record model="ir.action.wizard" id="wizard_cerrar_orden_trabajo">
+            <field name="name">Cerrar OT</field>
+            <field name="wiz_name">oci.wizard.cerrar.orden.trabajo</field>
+        </record>
+        <menuitem sequence="10" id="menu_cerrar_orden_trabajo" action="wizard_cerrar_orden_trabajo"
+            parent="menu_orden_trabajo0"/>
+
+
+
+    </data>
+</tryton>

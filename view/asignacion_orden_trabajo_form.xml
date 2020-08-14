@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<form col="4">
+    <label name="name"/>
+    <field name="name" xexpand="1"/>
+    <newline/>
+    <label name="tecnico"/>
+    <field name="tecnico" xexpand="1"/>
+    <newline/>
+    <field name="ott" colspan="4" mode="tree" view_ids="oci.orden_trabajo_view_tree2" widget="many2many"/>
+    <group colspan="2" col="2" id="states">
+        <label name="state"/>
+        <field name="state"/>
+    </group>
+    <group colspan="2" col="1" id="buttons">
+        <button name="crear" string="Crear" icon="tryton-ok"/>
+    </group>
+    <field name="ott_function" colspan="4"/>
+</form>

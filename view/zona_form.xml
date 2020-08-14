@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<form col="4">
+    <label name="name"/>
+    <field name="name" xexpand="1"/>
+    <newline/>
+    <field name="armarios" colspan="4"/>
+</form>

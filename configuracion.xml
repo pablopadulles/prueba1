@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+        <record model="res.group" id="group_gwest_admin">
+            <field name="name">Grupo West (Admin)</field>
+        </record>
+        <record model="res.user-res.group"
+            id="user_admin_group_gwest_admin">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_gwest_admin"/>
+        </record>
+
+        <!-- reglas de acceso-->
+        <record model="ir.model.access" id="rule_group_recorrido_sequence1">
+            <field name="model" search="[('model', '=', 'gwest.sequences')]"/>
+            <field name="group" ref="group_gwest_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="rule_group_recorrido_sequence2">
+            <field name="model" search="[('model', '=', 'gwest.sequences.recorrido_sequence')]"/>
+            <field name="group" ref="group_gwest_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+
+        <menuitem name="Party" sequence="10" id="party.menu_party"
+            icon="tryton-party"/>
+
+<!--        <menuitem sequence="10" id="product.menu_main_product"/>-->
+
+        <menuitem name="Configuracion" id="menu_config" sequence="900"/>
+
+<!--    sequence -->
+        <record model="ir.sequence.type" id="sequence_type_gwest_recorrido">
+            <field name="name">Recorrido</field>
+            <field name="code">gwest.recorrido</field>
+        </record>
+        <record model="ir.sequence.type-res.group"
+            id="sequence_type_group_admin1">
+            <field name="sequence_type" ref="sequence_type_gwest_recorrido"/>
+            <field name="group" ref="res.group_admin"/>
+        </record>
+        <record model="ir.sequence.type-res.group"
+            id="sequence_type_gwest_admin">
+            <field name="sequence_type" ref="sequence_type_gwest_recorrido"/>
+            <field name="group" ref="group_gwest_admin"/>
+        </record>
+
+        <record model="ir.sequence" id="sequence_incidencias_mantenimito">
+            <field name="name">Recorrido</field>
+            <field name="code">gwest.recorrido</field>
+        </record>
+
+<!--     gwest.recorrido.configuration -->
+
+        <record model="ir.ui.view" id="gwest_sequences_view_form">
+            <field name="model">gwest.sequences</field>
+            <field name="type">form</field>
+            <field name="name">configuration_sequences_form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_gwest_sequences">
+            <field name="name">Secuencia</field>
+            <field name="res_model">gwest.sequences</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gwest_sequences_view">
+            <field name="sequence" eval="1"/>
+            <field name="view" ref="gwest_sequences_view_form"/>
+            <field name="act_window" ref="act_gwest_sequences"/>
+        </record>
+
+        <menuitem action="act_gwest_sequences" id="menu_recorrido_sequences"
+            parent="menu_config" sequence="1" icon="tryton-list"/>
+
+    </data>
+
+    <data noupdate="1">
+        <record model="party.category"
+            id="vendedor">
+            <field name="name">Vendedor</field>
+        </record>
+        <record model="party.category"
+            id="cobrador">
+            <field name="name">Cobrador</field>
+        </record>
+        <record model="party.category"
+            id="cliente">
+            <field name="name">Cliente</field>
+        </record>
+    </data>
+</tryton>

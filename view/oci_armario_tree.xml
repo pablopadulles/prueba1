@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tree>
+    <field name="name" expand="1"/>
+    <field name="central" expand="1"/>
+    <field name="calle"/>
+    <field name="altura"/>
+</tree>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+
+<!--    oci.central.telecom   -->
+        <record model="ir.ui.view" id="oci_central_telecom_view_tree">
+            <field name="model">oci.central.telecom</field>
+            <field name="type">tree</field>
+            <field name="name">oci_central_telecom_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_oci_central_telecom">
+            <field name="name">Centrales</field>
+            <field name="res_model">oci.central.telecom</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_oci_central_telecom_view">
+            <field name="sequence" eval="9"/>
+            <field name="view" ref="oci_central_telecom_view_tree"/>
+            <field name="act_window" ref="act_oci_central_telecom"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_oci_central_telecom" action="act_oci_central_telecom"
+            />
+
+<!--    oci.armario   -->
+        <record model="ir.ui.view" id="oci_armario_view_tree">
+            <field name="model">oci.armario</field>
+            <field name="type">tree</field>
+            <field name="name">oci_armario_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_oci_armario">
+            <field name="name">Armarios</field>
+            <field name="res_model">oci.armario</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_oci_armario_view">
+            <field name="sequence" eval="9"/>
+            <field name="view" ref="oci_armario_view_tree"/>
+            <field name="act_window" ref="act_oci_armario"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_oci_armario" action="act_oci_armario"
+            />
+
+<!--    oci.terminal   -->
+        <record model="ir.ui.view" id="oci_terminal_view_tree">
+            <field name="model">oci.terminal</field>
+            <field name="type">tree</field>
+            <field name="name">oci_terminal_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_oci_terminal">
+            <field name="name">Terminales</field>
+            <field name="res_model">oci.terminal</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_oci_terminal_view">
+            <field name="sequence" eval="9"/>
+            <field name="view" ref="oci_terminal_view_tree"/>
+            <field name="act_window" ref="act_oci_terminal"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_oci_terminal" action="act_oci_terminal"
+            />
+
+    </data>
+</tryton>

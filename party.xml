@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+<!--    Tecnico   -->
+        <record model="ir.ui.view" id="tecnico_direccion_view_form">
+            <field name="model">party.address</field>
+            <field name="type">form</field>
+            <field name="name">address_form</field>
+            <field name="priority" eval="10"/>
+        </record>
+        <record model="ir.ui.view" id="tecnico_view_form">
+            <field name="model">party.party</field>
+            <field name="type">form</field>
+            <field name="name">tecnico_form</field>
+            <field name="priority" eval="15"/>
+        </record>
+        <record model="ir.ui.view" id="tecnico_view_tree">
+            <field name="model">party.party</field>
+            <field name="type">tree</field>
+            <field name="name">tecnico_tree</field>
+            <field name="priority" eval="15"/>
+        </record>
+
+        <record model="ir.action.act_window" id="act_win_tecnico">
+            <field name="name">Tecnicos</field>
+            <field name="res_model">party.party</field>
+            <field name="context"
+                eval="{'perfil': 'tec'}" pyson="1"/>
+            <field name="domain"
+                eval="[('perfil', '=', 'tec')]"
+                pyson="1"/>
+        </record>
+        <record model="ir.action.act_window" id="act_win_supervisor">
+            <field name="name">Supervisores</field>
+            <field name="res_model">party.party</field>
+            <field name="context"
+                eval="{'perfil': 'sup'}" pyson="1"/>
+            <field name="domain"
+                eval="[('perfil', '=', 'sup')]"
+                pyson="1"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_win_v_tecnico_view_tree">
+            <field name="sequence" eval="9"/>
+            <field name="view" ref="tecnico_view_tree"/>
+            <field name="act_window" ref="act_win_tecnico"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_win_v_tecnico_view_form">
+            <field name="sequence" eval="19"/>
+            <field name="view" ref="tecnico_view_form"/>
+            <field name="act_window" ref="act_win_tecnico"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_tecnico" action="act_win_tecnico"
+            icon="tryton-party"/>
+
+<!--    Area   -->
+        <record model="ir.ui.view" id="area_view_form">
+            <field name="model">oci.area</field>
+            <field name="type">form</field>
+            <field name="name">area_form</field>
+        </record>
+        <record model="ir.ui.view" id="area_view_tree">
+            <field name="model">oci.area</field>
+            <field name="type">tree</field>
+            <field name="name">area_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_win_area">
+            <field name="name">Areas</field>
+            <field name="res_model">oci.area</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_win_v_area_view_tree">
+            <field name="sequence" eval="9"/>
+            <field name="view" ref="area_view_tree"/>
+            <field name="act_window" ref="act_win_area"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_win_v_area_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="area_view_form"/>
+            <field name="act_window" ref="act_win_area"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_area" action="act_win_area"
+            />
+
+<!--    Zona   -->
+        <record model="ir.ui.view" id="zona_view_form">
+            <field name="model">oci.zona</field>
+            <field name="type">form</field>
+            <field name="name">zona_form</field>
+        </record>
+        <record model="ir.ui.view" id="zona_view_tree">
+            <field name="model">oci.zona</field>
+            <field name="type">tree</field>
+            <field name="name">zona_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_win_zona">
+            <field name="name">Zonas</field>
+            <field name="res_model">oci.zona</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_win_v_zona_view_tree">
+            <field name="sequence" eval="9"/>
+            <field name="view" ref="zona_view_tree"/>
+            <field name="act_window" ref="act_win_zona"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_win_v_zona_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="zona_view_form"/>
+            <field name="act_window" ref="act_win_zona"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_zona" action="act_win_zona"
+            />
+
+<!--    Grupo   -->
+        <record model="ir.ui.view" id="grupo_view_form">
+            <field name="model">oci.grupo</field>
+            <field name="type">form</field>
+            <field name="name">grupo_form</field>
+        </record>
+        <record model="ir.ui.view" id="grupo_view_tree">
+            <field name="model">oci.grupo</field>
+            <field name="type">tree</field>
+            <field name="name">grupo_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_win_grupo">
+            <field name="name">Grupos</field>
+            <field name="res_model">oci.grupo</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_win_v_grupo_view_tree">
+            <field name="sequence" eval="9"/>
+            <field name="view" ref="grupo_view_tree"/>
+            <field name="act_window" ref="act_win_grupo"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_win_v_grupo_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="grupo_view_form"/>
+            <field name="act_window" ref="act_win_grupo"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_grupo" action="act_win_grupo"
+            />
+
+    </data>
+</tryton>
