@@ -6,7 +6,7 @@ from . import party
 from . import orden_trabajo
 from . import armario
 # from . import herramientas
-# from . import configuracion
+from . import configuracion
 
 def register():
     Pool.register(
@@ -22,6 +22,8 @@ def register():
         armario.OciCentralTelecom,
         armario.OciArmario,
         armario.OciTerminal,
+        configuracion.Configuration,
+        configuracion.ConfigurationOTSequence,
         # oreden_trabajo.OrdenDeTrabajo,
         # herramientas.OrdenDeTrabajo,
         # configuracion.ConfigurationSequence,

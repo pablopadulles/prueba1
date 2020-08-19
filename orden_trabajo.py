@@ -8,7 +8,7 @@ from trytond.i18n import gettext
 from trytond.model import (ModelView, ModelSQL, MultiValueMixin, ValueMixin,
     DeactivableMixin, fields, Unique, sequence_ordered, Workflow)
 from trytond.wizard import Wizard, StateTransition, StateView, Button
-from trytond.pyson import Eval, Bool
+from trytond.pyson import Eval, Bool, Not
 from trytond.transaction import Transaction
 from trytond.pool import Pool, PoolMeta
 from trytond import backend
@@ -475,18 +475,20 @@ class AsignacioOrdenTrabajo(Workflow, ModelView, ModelSQL):
     'Asignacion Orden Trabajo'
     __name__ = 'oci.asignacion.orden.trabajo'
 
-    name = fields.Char('Numero')
+    name = fields.Char('Numero', readonly=True)
     tecnico = fields.Many2One('party.party', 'Tecnico', domain=[
             ('perfil', '=', 'tec'),
             ])
     ott_function = fields.Function(fields.Many2Many('oci.orden.trabajo', None, None, 'OT',
-            states={'invisible': False}),
+            states={'invisible': True}),
             'on_change_with_ott_function')
     state = fields.Selection([
         ('draft', 'Borrador'),
+        ('close', 'Cerrada'),
         ('open', 'Avierta')], 'Estado', readonly=True)
-    ott = fields.One2Many('oci.orden.trabajo', 'ot_oci','OT', add_remove=[
-            ('id', 'in', Eval('ott_function'))])
+    ott = fields.One2Many('oci.orden.trabajo', 'ot_oci', 'OT', add_remove=[
+            ('id', 'in', Eval('ott_function'))],
+            states={'readonly': Not(Bool(Eval('state').in_(['draft'])))})
 
     @classmethod
     def __setup__(cls):
@@ -494,11 +496,14 @@ class AsignacioOrdenTrabajo(Workflow, ModelView, ModelSQL):
         cls._order.insert(0, ('id', 'ASC'))
         cls._transitions |= set((
             ('draft', 'open'),
+            ('open', 'close'),
             ))
         cls._buttons.update({
                 'crear': {
+                    'invisible': Eval('state').in_(['open'])
                     },
                 })
+
 
     @staticmethod
     def default_state():
@@ -524,8 +529,22 @@ class AsignacioOrdenTrabajo(Workflow, ModelView, ModelSQL):
     @classmethod
     @Workflow.transition('open')
     def crear(cls, ot):
-        import pdb;pdb.set_trace()
-        pass
+        for values in ot:
+            if not values.name:
+                values.name = cls._new_code()
+            for ot in ot.ott:
+                ot.state = 'asignado'
+            values.save()
+
+    @classmethod
+    def _new_code(cls, **pattern):
+        pool = Pool()
+        Sequence = pool.get('ir.sequence')
+        Configuration = pool.get('oci.configuration')
+        config = Configuration(1)
+        sequence = config.get_multivalue('ot_sequence', **pattern)
+        if sequence:
+            return Sequence.get_id(sequence.id)
 
 
 class OrdenTrabajoCerradas(ModelView, ModelSQL):
@@ -628,6 +647,8 @@ class WisardCerrarOrdenTrabajo(Wizard):
                 ots = OrdenTrabajo.search([('numero', '=', int(linea[campo+1]))])
                 if ots:
                     dic[CAMPOS_CIERRE[campo][0]] = ots[0].id
+                    ots[0].state = 'cerrado'
+                    ots[0].save()
                 else:
                     continue
             if CAMPOS_CIERRE[campo][1] == 'char':
@@ -635,7 +656,7 @@ class WisardCerrarOrdenTrabajo(Wizard):
             elif CAMPOS_CIERRE[campo][1] == 'datetime':
                 if linea[campo]:
                     if type(linea[campo]) == str:
-                        dt_s = "17/07/2020 03:06:07"
+                        dt_s = linea[campo+1]
                         dt = datetime.strptime(dt_s, '%d/%m/%Y %H:%M:%S')
                         dic[CAMPOS_CIERRE[campo][0]] = dt
                     else:

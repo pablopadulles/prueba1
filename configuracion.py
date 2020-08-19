@@ -33,31 +33,28 @@ import random
 import pytz
 
 
-__all__ = ['ConfigurationSequence', 'ConfigurationRecorridoSequence',
-            ]
-
-recorrido_sequence = fields.Many2One(
-        'ir.sequence', 'Codigo de Recorrido', required=True,
+ot_sequence = fields.Many2One(
+        'ir.sequence', 'Nro Orden de Trabajo', required=True,
         domain=[
-            ('code', '=', 'gwest.recorrido'),
+            ('code', '=', 'oci.asignacion.orden.trabajo'),
         ]
         )
 
 
 # SEQUENCES
-class ConfigurationSequence(ModelSingleton, ModelSQL, ModelView, MultiValueMixin):
-    'Standard Sequences gwest Recorrido'
-    __name__ = 'gwest.sequences'
+class Configuration(ModelSingleton, ModelSQL, ModelView, MultiValueMixin):
+    'Configuration'
+    __name__ = 'oci.configuration'
 
-    recorrido_sequence = fields.MultiValue(recorrido_sequence)
+    ot_sequence = fields.MultiValue(ot_sequence)
 
 
-class ConfigurationRecorridoSequence(ModelSQL, ValueMixin):
-    'GWest Recorrido Configuration Sequence'
-    __name__ = 'gwest.sequences.recorrido_sequence'
+class ConfigurationOTSequence(ModelSQL, ValueMixin):
+    'Configuration Sequence'
+    __name__ = 'oci.configuration.ot_sequence'
 
-    recorrido_sequence = recorrido_sequence
-    _configuration_value_field = 'recorrido_sequence'
+    ot_sequence = ot_sequence
+    #_configuration_value_field = 'recorrido_sequence'
 
     @classmethod
     def check_xml_record(cls, records, values):

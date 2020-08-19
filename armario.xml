@@ -4,6 +4,8 @@ this repository contains the full copyright notices and license terms. -->
 <tryton>
     <data>
 
+        <menuitem sequence="0" id="menu_configuracion_armario" name="Configuracion Armarios"
+            />
 
 <!--    oci.central.telecom   -->
         <record model="ir.ui.view" id="oci_central_telecom_view_tree">
@@ -24,7 +26,7 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <menuitem sequence="0" id="menu_oci_central_telecom" action="act_oci_central_telecom"
-            />
+            parent="menu_configuracion_armario"/>
 
 <!--    oci.armario   -->
         <record model="ir.ui.view" id="oci_armario_view_tree">
@@ -45,7 +47,7 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <menuitem sequence="0" id="menu_oci_armario" action="act_oci_armario"
-            />
+            parent="menu_configuracion_armario"/>
 
 <!--    oci.terminal   -->
         <record model="ir.ui.view" id="oci_terminal_view_tree">
@@ -66,7 +68,7 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <menuitem sequence="0" id="menu_oci_terminal" action="act_oci_terminal"
-            />
+            parent="menu_configuracion_armario"/>
 
     </data>
 </tryton>

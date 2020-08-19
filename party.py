@@ -7,7 +7,7 @@ from trytond.i18n import gettext
 from trytond.model import (ModelView, ModelSQL, MultiValueMixin, ValueMixin,
     DeactivableMixin, fields, Unique, sequence_ordered)
 from trytond.wizard import Wizard, StateTransition, StateView, Button
-from trytond.pyson import Eval, Bool
+from trytond.pyson import Eval, Bool, Not
 from trytond.transaction import Transaction
 from trytond.pool import Pool, PoolMeta
 from trytond import backend
@@ -20,12 +20,13 @@ from .exceptions import (
 class Party(metaclass=PoolMeta):
     __name__ = 'party.party'
 
-    lastname = fields.Char('Apellido', required=True)
+    lastname = fields.Char('Apellido', states={'required': Bool(Eval('perfil', False))})
     dni = fields.Char('DNI')
-    legajo = fields.Char('Legajo', required=True)
+    legajo = fields.Char('Legajo', states={'required': Bool(Eval('perfil', False))})
     fecha_ingreso = fields.Date('Fecha Ingreso')
     fecha_baja = fields.Date('Fecha Baja', states={'readonly': True})
     perfil = fields.Selection([
+        (None, ''),
         ('tec', 'Tecnico'),
         ('sup', 'Supervisor'),
         ('adm', 'Adminitrativo'),

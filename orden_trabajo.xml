@@ -24,6 +24,27 @@ this repository contains the full copyright notices and license terms. -->
             <field name="name">Orden de Trabajo Telecom</field>
             <field name="res_model">oci.orden.trabajo</field>
         </record>
+        <record model="ir.action.act_window.domain" id="act_orden_trabajo_pendiente">
+            <field name="name">Pendientes</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain" eval="[('state', 'in', ['pendiente'])]" pyson="1"/>
+            <field name="count" eval="True"/>
+            <field name="act_window" ref="act_orden_trabajo"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_orden_trabajo_asignado">
+            <field name="name">Asignadas</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain" eval="[('state', 'in', ['asignado'])]" pyson="1"/>
+            <field name="count" eval="True"/>
+            <field name="act_window" ref="act_orden_trabajo"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_orden_trabajo_cerrado">
+            <field name="name">Cerrado</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain" eval="[('state', 'in', ['cerrado'])]" pyson="1"/>
+            <field name="count" eval="True"/>
+            <field name="act_window" ref="act_orden_trabajo"/>
+        </record>
 
         <record model="ir.action.act_window.view" id="act_orden_trabajo_view">
             <field name="sequence" eval="9"/>
@@ -52,7 +73,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="act_window" ref="act_orden_trabajo_cerradas"/>
         </record>
 
-        <menuitem sequence="0" id="menu_orden_trabajo_cerradas" action="act_orden_trabajo_cerradas"
+        <menuitem sequence="10" id="menu_orden_trabajo_cerradas" action="act_orden_trabajo_cerradas"
             parent="menu_orden_trabajo0"/>
 
 <!--    oci.asignacion.orden.trabajo   -->
@@ -83,7 +104,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="act_window" ref="act_asignacion_orden_trabajo"/>
         </record>
 
-        <menuitem sequence="0" id="menu_asignacion_orden_trabajo" action="act_asignacion_orden_trabajo"
+        <menuitem sequence="20" id="menu_asignacion_orden_trabajo" action="act_asignacion_orden_trabajo"
             parent="menu_orden_trabajo0"/>
 
 <!--    Wizard Cargar OT Telecom   -->
@@ -97,7 +118,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="name">Cargar OT Pendientes</field>
             <field name="wiz_name">oci.wizard.cargar.orden.trabajo</field>
         </record>
-        <menuitem sequence="10" id="menu_carga_orden_trabajo" action="wizard_cargar_orden_trabajo"
+        <menuitem sequence="30" id="menu_carga_orden_trabajo" action="wizard_cargar_orden_trabajo"
             parent="menu_orden_trabajo0"/>
 
 <!--    Wizard Cerrar OT Telecom   -->
@@ -105,7 +126,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="name">Cerrar OT</field>
             <field name="wiz_name">oci.wizard.cerrar.orden.trabajo</field>
         </record>
-        <menuitem sequence="10" id="menu_cerrar_orden_trabajo" action="wizard_cerrar_orden_trabajo"
+        <menuitem sequence="40" id="menu_cerrar_orden_trabajo" action="wizard_cerrar_orden_trabajo"
             parent="menu_orden_trabajo0"/>
 
 

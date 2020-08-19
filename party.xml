@@ -4,6 +4,9 @@ this repository contains the full copyright notices and license terms. -->
 <tryton>
     <data>
 
+        <menuitem sequence="0" id="menu_orden_trabajo0" name="Ordenes De Trabajo"
+            />
+
 <!--    Tecnico   -->
         <record model="ir.ui.view" id="tecnico_direccion_view_form">
             <field name="model">party.address</field>
