@@ -4,6 +4,9 @@ this repository contains the full copyright notices and license terms. -->
 <tryton>
     <data>
 
+        <menuitem sequence="0" id="menu_tecnico0" name="Tecnico"
+            />
+
         <menuitem sequence="0" id="menu_orden_trabajo0" name="Ordenes De Trabajo"
             />
 
@@ -58,7 +61,7 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <menuitem sequence="0" id="menu_tecnico" action="act_win_tecnico"
-            icon="tryton-party"/>
+            parent="menu_tecnico0"/>
 
 <!--    Area   -->
         <record model="ir.ui.view" id="area_view_form">
@@ -88,7 +91,7 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <menuitem sequence="0" id="menu_area" action="act_win_area"
-            />
+            parent="menu_tecnico0"/>
 
 <!--    Zona   -->
         <record model="ir.ui.view" id="zona_view_form">
@@ -118,7 +121,7 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <menuitem sequence="0" id="menu_zona" action="act_win_zona"
-            />
+            parent="menu_tecnico0"/>
 
 <!--    Grupo   -->
         <record model="ir.ui.view" id="grupo_view_form">
@@ -148,7 +151,7 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <menuitem sequence="0" id="menu_grupo" action="act_win_grupo"
-            />
+            parent="menu_tecnico0"/>
 
     </data>
 </tryton>

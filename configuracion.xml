@@ -33,6 +33,24 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <!-- reglas de acceso Armarios-->
+        <!--        acceso al los menus-->
+        <record model="ir.ui.menu-res.group" id="menu_oci_armario_group">
+            <field name="menu" ref="oci.menu_oci_armario"/>
+            <field name="group" ref="group_oci_armario_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_oci_central_telecom_group">
+            <field name="menu" ref="oci.menu_oci_central_telecom"/>
+            <field name="group" ref="group_oci_armario_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_configuracion_armario_group">
+            <field name="menu" ref="oci.menu_configuracion_armario"/>
+            <field name="group" ref="group_oci_armario_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_oci_terminal_group">
+            <field name="menu" ref="oci.menu_oci_terminal"/>
+            <field name="group" ref="group_oci_armario_admin"/>
+        </record>
+
         <record model="ir.model.access" id="rule_group_central_telecom">
             <field name="model" search="[('model', '=', 'oci.central.telecom')]"/>
             <field name="group" ref="group_oci_armario_admin"/>
@@ -60,6 +78,28 @@ this repository contains the full copyright notices and license terms. -->
 
 
         <!-- reglas de acceso Party-->
+        <!--        acceso al los menus-->
+        <record model="ir.ui.menu-res.group" id="menu_tecnico0_group">
+            <field name="menu" ref="oci.menu_tecnico0"/>
+            <field name="group" ref="group_oci_party_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_tecnico_group">
+            <field name="menu" ref="oci.menu_tecnico"/>
+            <field name="group" ref="group_oci_party_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_area_group">
+            <field name="menu" ref="oci.menu_area"/>
+            <field name="group" ref="group_oci_party_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_zona_group">
+            <field name="menu" ref="oci.menu_zona"/>
+            <field name="group" ref="group_oci_party_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_grupo_group">
+            <field name="menu" ref="oci.menu_grupo"/>
+            <field name="group" ref="group_oci_party_admin"/>
+        </record>
+
         <record model="ir.model.access" id="rule_group_party">
             <field name="model" search="[('model', '=', 'party.party')]"/>
             <field name="group" ref="group_oci_party_admin"/>
@@ -78,6 +118,32 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <!-- reglas de acceso Armarios-->
+        <!--        acceso al los menus-->
+        <record model="ir.ui.menu-res.group" id="menu_orden_trabajo0_group">
+            <field name="menu" ref="oci.menu_orden_trabajo0"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_orden_trabajo_group">
+            <field name="menu" ref="oci.menu_orden_trabajo"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_orden_trabajo_cerradas_group">
+            <field name="menu" ref="oci.menu_orden_trabajo_cerradas"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_asignacion_orden_trabajo_group">
+            <field name="menu" ref="oci.menu_asignacion_orden_trabajo"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_carga_orden_trabajo_group">
+            <field name="menu" ref="oci.menu_carga_orden_trabajo"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_cerrar_orden_trabajo_group">
+            <field name="menu" ref="oci.menu_cerrar_orden_trabajo"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+        </record>
+
         <record model="ir.model.access" id="rule_group_ot">
             <field name="model" search="[('model', '=', 'oci.orden.trabajo')]"/>
             <field name="group" ref="group_oci_orden_trabajo_admin"/>
