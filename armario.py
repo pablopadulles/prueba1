@@ -25,7 +25,7 @@ from .exceptions import (
 
 
 class OciCentralTelecom(ModelView, ModelSQL):
-    'Oci Armario'
+    'Oci Central'
     __name__ = 'oci.central.telecom'
 
     name = fields.Char('Nombre', readonly=True)

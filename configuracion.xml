@@ -3,35 +3,130 @@
 this repository contains the full copyright notices and license terms. -->
 <tryton>
     <data>
+        <menuitem name="Configuracion" id="menu_config" sequence="900"/>
 
-<!--        <record model="res.group" id="group_gwest_admin">-->
-<!--            <field name="name">Grupo West (Admin)</field>-->
-<!--        </record>-->
-<!--        <record model="res.user-res.group"-->
-<!--            id="user_admin_group_gwest_admin">-->
-<!--            <field name="user" ref="res.user_admin"/>-->
-<!--            <field name="group" ref="group_gwest_admin"/>-->
-<!--        </record>-->
+        <record model="res.group" id="group_oci_armario_admin">
+            <field name="name">OCI Armarios(Admin)</field>
+        </record>
+        <record model="res.user-res.group"
+            id="user_admin_armario_group_oci_admin">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_oci_armario_admin"/>
+        </record>
 
-        <!-- reglas de acceso-->
-<!--        <record model="ir.model.access" id="rule_group_recorrido_sequence1">-->
-<!--            <field name="model" search="[('model', '=', 'gwest.sequences')]"/>-->
-<!--            <field name="group" ref="group_gwest_admin"/>-->
+        <record model="res.group" id="group_oci_party_admin">
+            <field name="name">OCI Party(Admin)</field>
+        </record>
+        <record model="res.user-res.group"
+            id="user_admin_party_group_oci_admin">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_oci_party_admin"/>
+        </record>
+
+        <record model="res.group" id="group_oci_orden_trabajo_admin">
+            <field name="name">OCI OT(Admin)</field>
+        </record>
+        <record model="res.user-res.group"
+            id="user_admin_group_oci_orden_trabajo_admin">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+        </record>
+
+        <!-- reglas de acceso Armarios-->
+        <record model="ir.model.access" id="rule_group_central_telecom">
+            <field name="model" search="[('model', '=', 'oci.central.telecom')]"/>
+            <field name="group" ref="group_oci_armario_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="rule_group_armario">
+            <field name="model" search="[('model', '=', 'oci.armario')]"/>
+            <field name="group" ref="group_oci_armario_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="rule_group_terminal">
+            <field name="model" search="[('model', '=', 'oci.terminal')]"/>
+            <field name="group" ref="group_oci_armario_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+
+        <!-- reglas de acceso Party-->
+        <record model="ir.model.access" id="rule_group_party">
+            <field name="model" search="[('model', '=', 'party.party')]"/>
+            <field name="group" ref="group_oci_party_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="rule_group_party_address">
+            <field name="model" search="[('model', '=', 'party.address')]"/>
+            <field name="group" ref="group_oci_party_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <!-- reglas de acceso Armarios-->
+        <record model="ir.model.access" id="rule_group_ot">
+            <field name="model" search="[('model', '=', 'oci.orden.trabajo')]"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+<!--        <record model="ir.model.access" id="rule_group_w_cots">-->
+<!--            <field name="model" search="[('model', '=', 'wizard.cargar.orden.trabajo.start')]"/>-->
+<!--            <field name="group" ref="group_oci_orden_trabajo_admin"/>-->
 <!--            <field name="perm_read" eval="True"/>-->
 <!--            <field name="perm_write" eval="True"/>-->
 <!--            <field name="perm_create" eval="True"/>-->
-<!--            <field name="perm_delete" eval="True"/>-->
+<!--            <field name="perm_delete" eval="False"/>-->
 <!--        </record>-->
-<!--        <record model="ir.model.access" id="rule_group_recorrido_sequence2">-->
-<!--            <field name="model" search="[('model', '=', 'gwest.sequences.recorrido_sequence')]"/>-->
-<!--            <field name="group" ref="group_gwest_admin"/>-->
+<!--        <record model="ir.model.access" id="rule_group_w_cot">-->
+<!--            <field name="model" search="[('model', '=', 'oci.wizard.cargar.orden.trabajo')]"/>-->
+<!--            <field name="group" ref="group_oci_orden_trabajo_admin"/>-->
+<!--            <field name="perm_read" eval="True"/>-->
+<!--            <field name="perm_write" eval="True"/>-->
+<!--            <field name="perm_create" eval="True"/>-->
+<!--            <field name="perm_delete" eval="False"/>-->
+<!--        </record>-->
+        <record model="ir.model.access" id="rule_group_aot">
+            <field name="model" search="[('model', '=', 'oci.asignacion.orden.trabajo')]"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="rule_group_otc">
+            <field name="model" search="[('model', '=', 'oci.orden.trabajo.cerradas')]"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+<!--        <record model="ir.model.access" id="rule_group_w_cerrar_ot">-->
+<!--            <field name="model" search="[('model', '=', 'oci.wizard.cerrar.orden.trabajo')]"/>-->
+<!--            <field name="group" ref="group_oci_orden_trabajo_admin"/>-->
 <!--            <field name="perm_read" eval="True"/>-->
 <!--            <field name="perm_write" eval="True"/>-->
 <!--            <field name="perm_create" eval="True"/>-->
 <!--            <field name="perm_delete" eval="False"/>-->
 <!--        </record>-->
 
-        <menuitem name="Configuracion" id="menu_config" sequence="900"/>
 
 <!--    sequence -->
         <record model="ir.sequence.type" id="sequence_type_ot_sequence">
