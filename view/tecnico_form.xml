@@ -6,6 +6,8 @@ this repository contains the full copyright notices and license terms. -->
     <field name="name" xexpand="1"/>
     <label name="lastname"/>
     <field name="lastname"/>
+    <label name="legajo"/>
+    <field name="legajo"/>
     <label name="perfil"/>
     <field name="perfil"/>
     <label name="area"/>
