@@ -532,7 +532,7 @@ class AsignacioOrdenTrabajo(Workflow, ModelView, ModelSQL):
         for values in ot:
             if not values.name:
                 values.name = cls._new_code()
-            for ot in ot.ott:
+            for ot in values:
                 ot.state = 'asignado'
             values.save()
 
