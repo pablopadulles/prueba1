@@ -187,7 +187,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="act_window" ref="act_oci_tarea_loc"/>
         </record>
 
-<!--        <menuitem sequence="20" id="menu_oci_tarea_loc" action="act_oci_tarea_loc"-->
+<!--        <menuitem sequence="30" id="menu_oci_tarea_loc" action="act_oci_tarea_loc"-->
 <!--            parent="menu_orden_trabajo0"/>-->
 
 <!--    Wizard Cargar OT Telecom   -->
@@ -201,7 +201,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="name">Cargar OT Pendientes</field>
             <field name="wiz_name">oci.wizard.cargar.orden.trabajo</field>
         </record>
-        <menuitem sequence="30" id="menu_carga_orden_trabajo" action="wizard_cargar_orden_trabajo"
+        <menuitem sequence="40" id="menu_carga_orden_trabajo" action="wizard_cargar_orden_trabajo"
             parent="menu_orden_trabajo0"/>
 
 <!--    Wizard Cerrar OT Telecom   -->
@@ -209,10 +209,8 @@ this repository contains the full copyright notices and license terms. -->
             <field name="name">Cerrar OT</field>
             <field name="wiz_name">oci.wizard.cerrar.orden.trabajo</field>
         </record>
-        <menuitem sequence="40" id="menu_cerrar_orden_trabajo" action="wizard_cerrar_orden_trabajo"
+        <menuitem sequence="50" id="menu_cerrar_orden_trabajo" action="wizard_cerrar_orden_trabajo"
             parent="menu_orden_trabajo0"/>
-
-
 
     </data>
 </tryton>

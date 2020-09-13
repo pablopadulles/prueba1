@@ -201,6 +201,10 @@ this repository contains the full copyright notices and license terms. -->
             <field name="menu" ref="oci.menu_oci_orden_trabajo_cerradas_wfx"/>
             <field name="group" ref="group_oci_orden_trabajo_admin"/>
         </record>
+<!--        <record model="ir.ui.menu-res.group" id="menu_oci_tarea_loc_group">-->
+<!--            <field name="menu" ref="oci.menu_oci_tarea_loc"/>-->
+<!--            <field name="group" ref="group_oci_orden_trabajo_admin"/>-->
+<!--        </record>-->
 
         <record model="ir.model.access" id="rule_group_ot">
             <field name="model" search="[('model', '=', 'oci.orden.trabajo')]"/>
@@ -258,14 +262,14 @@ this repository contains the full copyright notices and license terms. -->
             <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="True"/>
         </record>
-        <record model="ir.model.access" id="rule_group_oci_tarea_loc">
-            <field name="model" search="[('model', '=', 'oci.tarea.loc')]"/>
-            <field name="group" ref="group_oci_orden_trabajo_admin"/>
-            <field name="perm_read" eval="True"/>
-            <field name="perm_write" eval="True"/>
-            <field name="perm_create" eval="True"/>
-            <field name="perm_delete" eval="True"/>
-        </record>
+<!--        <record model="ir.model.access" id="rule_group_oci_tarea_loc">-->
+<!--            <field name="model" search="[('model', '=', 'oci.tarea.loc')]"/>-->
+<!--            <field name="group" ref="group_oci_orden_trabajo_admin"/>-->
+<!--            <field name="perm_read" eval="True"/>-->
+<!--            <field name="perm_write" eval="True"/>-->
+<!--            <field name="perm_create" eval="True"/>-->
+<!--            <field name="perm_delete" eval="True"/>-->
+<!--        </record>-->
 <!--        <record model="ir.model.access" id="rule_group_w_cerrar_ot">-->
 <!--            <field name="model" search="[('model', '=', 'oci.wizard.cerrar.orden.trabajo')]"/>-->
 <!--            <field name="group" ref="group_oci_orden_trabajo_admin"/>-->

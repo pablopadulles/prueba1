@@ -691,7 +691,7 @@ class OrdenTrabajoCerradasWFX(ModelView, ModelSQL):
     celular = fields.Char('Celular')
     alta = fields.Boolean('Alta')
     tarea = fields.Many2One('oci.tarea', 'Tarea')
-    loc = fields.Many2One('oci.tarea', 'Tarea', domain=[
+    loc = fields.Many2One('oci.tarea.loc', 'Localizacion', domain=[
             ('tarea', '=', Eval('tarea')),
         ])
     sin_visita = fields.Boolean('Sin Visitar')
@@ -702,8 +702,8 @@ class OrdenTrabajoCerradasWFX(ModelView, ModelSQL):
     def on_change_tecnico(self):
         if not self.tecnico:
            return
-        self.cod_tec = self.tecnico.cod_tec
-        self.celular = self.cel_teco
+        self.cod_tec = self.tecnico.cod_tec or None
+        self.celular = self.tecnico.cel_teco or None
 
     @fields.depends('nro_ot')
     def on_change_nro_ot(self):
@@ -723,7 +723,7 @@ class Tarea(ModelView, ModelSQL):
 
     name = fields.Char('Nombre', required=True)
     code = fields.Char('Codigo')
-    loc = fields.One2Many('oci.tarea.loc', 'tarea', 'Tarea')
+    loc = fields.One2Many('oci.tarea.loc', 'tarea', 'Localizacion')
 
 
 class LocalizacionTarea(ModelView, ModelSQL):
