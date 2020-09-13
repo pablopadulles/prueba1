@@ -107,6 +107,89 @@ this repository contains the full copyright notices and license terms. -->
         <menuitem sequence="20" id="menu_asignacion_orden_trabajo" action="act_asignacion_orden_trabajo"
             parent="menu_orden_trabajo0"/>
 
+<!--    oci.orden.trabajo.cerradas.wfx   -->
+        <record model="ir.ui.view" id="oci_orden_trabajo_cerradas_wfx_view_tree">
+            <field name="model">oci.orden.trabajo.cerradas.wfx</field>
+            <field name="type">tree</field>
+            <field name="name">oci_orden_trabajo_cerradas_wfx_tree</field>
+        </record>
+        <record model="ir.ui.view" id="oci_orden_trabajo_cerradas_wfx_view_form">
+            <field name="model">oci.orden.trabajo.cerradas.wfx</field>
+            <field name="type">form</field>
+            <field name="name">oci_orden_trabajo_cerradas_wfx_form</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_oci_orden_trabajo_cerradas_wfx">
+            <field name="name">Trabajos WFX</field>
+            <field name="res_model">oci.orden.trabajo.cerradas.wfx</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_oci_orden_trabajo_cerradas_wfx_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="oci_orden_trabajo_cerradas_wfx_view_tree"/>
+            <field name="act_window" ref="act_oci_orden_trabajo_cerradas_wfx"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_oci_orden_trabajo_cerradas_wfx_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="oci_orden_trabajo_cerradas_wfx_view_form"/>
+            <field name="act_window" ref="act_oci_orden_trabajo_cerradas_wfx"/>
+        </record>
+
+        <menuitem sequence="20" id="menu_oci_orden_trabajo_cerradas_wfx" action="act_oci_orden_trabajo_cerradas_wfx"
+            parent="menu_orden_trabajo0"/>
+
+<!--    oci.tarea   -->
+        <record model="ir.ui.view" id="oci_tarea_view_tree">
+            <field name="model">oci.tarea</field>
+            <field name="type">tree</field>
+            <field name="name">oci_tarea_tree</field>
+        </record>
+        <record model="ir.ui.view" id="oci_tarea_view_form">
+            <field name="model">oci.tarea</field>
+            <field name="type">form</field>
+            <field name="name">oci_tarea_form</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_oci_tarea">
+            <field name="name">Tareas</field>
+            <field name="res_model">oci.tarea</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_oci_tarea_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="oci_tarea_view_tree"/>
+            <field name="act_window" ref="act_oci_tarea"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_oci_tarea_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="oci_tarea_view_form"/>
+            <field name="act_window" ref="act_oci_tarea"/>
+        </record>
+
+        <menuitem sequence="20" id="menu_oci_tarea" action="act_oci_tarea"
+            parent="menu_orden_trabajo0"/>
+
+<!--    oci.tarea.loc   -->
+        <record model="ir.ui.view" id="oci_tarea_loc_view_tree">
+            <field name="model">oci.tarea.loc</field>
+            <field name="type">tree</field>
+            <field name="name">oci_tarea_loc_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_oci_tarea_loc">
+            <field name="name">Localisacion de Tareas</field>
+            <field name="res_model">oci.tarea.loc</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_oci_tarea_loc_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="oci_tarea_loc_view_tree"/>
+            <field name="act_window" ref="act_oci_tarea_loc"/>
+        </record>
+
+<!--        <menuitem sequence="20" id="menu_oci_tarea_loc" action="act_oci_tarea_loc"-->
+<!--            parent="menu_orden_trabajo0"/>-->
+
 <!--    Wizard Cargar OT Telecom   -->
         <record model="ir.ui.view" id="cargar_orden_trabajo_start">
             <field name="model">wizard.cargar.orden.trabajo.start</field>

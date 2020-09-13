@@ -21,7 +21,10 @@ class Party(metaclass=PoolMeta):
     __name__ = 'party.party'
 
     lastname = fields.Char('Apellido', states={'required': Bool(Eval('perfil', False))})
+    cod_tec = fields.Char('Cod/Tec')
     dni = fields.Char('DNI')
+    cel_teco = fields.Char('Celular Teco')
+    cel = fields.Char('Celular')
     legajo = fields.Char('Legajo', states={'required': Bool(Eval('perfil', False))})
     fecha_ingreso = fields.Date('Fecha Ingreso')
     fecha_baja = fields.Date('Fecha Baja', states={'readonly': True})

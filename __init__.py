@@ -7,6 +7,8 @@ from . import orden_trabajo
 from . import armario
 # from . import herramientas
 from . import configuracion
+from . import materiales
+
 
 def register():
     Pool.register(
@@ -19,9 +21,13 @@ def register():
         orden_trabajo.OrdenTrabajoCerradas,
         orden_trabajo.AsignacioOrdenTrabajo,
         orden_trabajo.WisardCargarOrdenTrabajoStart,
+        orden_trabajo.OrdenTrabajoCerradasWFX,
+        orden_trabajo.Tarea,
+        orden_trabajo.LocalizacionTarea,
         armario.OciCentralTelecom,
         armario.OciArmario,
         armario.OciTerminal,
+        materiales.Materiales,
         configuracion.Configuration,
         configuracion.ConfigurationOTSequence,
         # oreden_trabajo.OrdenDeTrabajo,

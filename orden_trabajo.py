@@ -670,3 +670,66 @@ class WisardCerrarOrdenTrabajo(Wizard):
             OrdenTrabajoCerradas.create([dic])
         except:
             logger.error('%s', str(linea), exc_info=True)
+
+
+class OrdenTrabajoCerradasWFX(ModelView, ModelSQL):
+    'Cierre de las Ordenes de Trabajo WFX'
+    __name__ = 'oci.orden.trabajo.cerradas.wfx'
+    _rec_name = 'nro_abonado'
+
+    fecha = fields.Date('Fecha')
+    nro_abonado = fields.Char('Nro Abonado')
+    nro_ot = fields.Char('Orden Trabajo')
+    tecnico = fields.Many2One('party.party', 'Tecnico', domain=[
+            ('perfil', '=', 'tec'),
+        ])
+    central = fields.Many2One('oci.central.telecom', 'Zona')
+    armario = fields.Many2One('oci.armario', 'Armario', domain=[
+            ('central', '=', Eval('central')),
+        ])
+    cod_tec = fields.Char('Cod/Tec')
+    celular = fields.Char('Celular')
+    alta = fields.Boolean('Alta')
+    tarea = fields.Many2One('oci.tarea', 'Tarea')
+    loc = fields.Many2One('oci.tarea', 'Tarea', domain=[
+            ('tarea', '=', Eval('tarea')),
+        ])
+    sin_visita = fields.Boolean('Sin Visitar')
+    observaciones = fields.Text('Observaciones')
+    materiales = fields.One2Many('oci.materiales', 'orden_trabajo', 'Materiales')
+
+    @fields.depends('tecnico', 'cod_tec', 'celular')
+    def on_change_tecnico(self):
+        if not self.tecnico:
+           return
+        self.cod_tec = self.tecnico.cod_tec
+        self.celular = self.cel_teco
+
+    @fields.depends('nro_ot')
+    def on_change_nro_ot(self):
+        if not self.nro_ot:
+           return
+        self.nro_ot = 'LETRAS' + self.nro_ot.rjust(6, '0')
+
+    @staticmethod
+    def default_fecha():
+        Date = Pool().get('ir.date')
+        return Date.today()
+
+
+class Tarea(ModelView, ModelSQL):
+    'Tareas para los cierres'
+    __name__ = 'oci.tarea'
+
+    name = fields.Char('Nombre', required=True)
+    code = fields.Char('Codigo')
+    loc = fields.One2Many('oci.tarea.loc', 'tarea', 'Tarea')
+
+
+class LocalizacionTarea(ModelView, ModelSQL):
+    'Localizacion de la tarea'
+    __name__ = 'oci.tarea.loc'
+
+    name = fields.Char('Nombre', required=True)
+    code = fields.Char('Codigo')
+    tarea = fields.Many2One('oci.tarea', 'Tarea', required=True)

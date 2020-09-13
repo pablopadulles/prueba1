@@ -13,6 +13,14 @@ this repository contains the full copyright notices and license terms. -->
             <field name="user" ref="res.user_admin"/>
             <field name="group" ref="group_oci_armario_admin"/>
         </record>
+        <record model="res.group" id="group_oci_materiales_admin">
+            <field name="name">OCI Materiales(Admin)</field>
+        </record>
+        <record model="res.user-res.group"
+            id="user_admin_materiales_group_oci_admin">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_oci_materiales_admin"/>
+        </record>
 
         <record model="res.group" id="group_oci_party_admin">
             <field name="name">OCI Party(Admin)</field>
@@ -31,6 +39,23 @@ this repository contains the full copyright notices and license terms. -->
             <field name="user" ref="res.user_admin"/>
             <field name="group" ref="group_oci_orden_trabajo_admin"/>
         </record>
+
+        <!-- reglas de acceso Materiales-->
+        <!--        acceso al los menus-->
+        <record model="ir.ui.menu-res.group" id="menu_oci_materiales_group">
+            <field name="menu" ref="oci.menu_materiales"/>
+            <field name="group" ref="group_oci_materiales_admin"/>
+        </record>
+
+        <record model="ir.model.access" id="rule_group_materiales">
+            <field name="model" search="[('model', '=', 'oci.materiales')]"/>
+            <field name="group" ref="group_oci_materiales_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
 
         <!-- reglas de acceso Armarios-->
         <!--        acceso al los menus-->
@@ -117,7 +142,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="perm_delete" eval="False"/>
         </record>
 
-        <!-- reglas de acceso Armarios-->
+        <!-- reglas de acceso OT-->
         <!--        acceso al los menus-->
         <record model="ir.ui.menu-res.group" id="menu_orden_trabajo0_group">
             <field name="menu" ref="oci.menu_orden_trabajo0"/>
@@ -141,6 +166,14 @@ this repository contains the full copyright notices and license terms. -->
         </record>
         <record model="ir.ui.menu-res.group" id="menu_cerrar_orden_trabajo_group">
             <field name="menu" ref="oci.menu_cerrar_orden_trabajo"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_oci_tarea_group">
+            <field name="menu" ref="oci.menu_oci_tarea"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_orden_trabajo_wfx_group">
+            <field name="menu" ref="oci.menu_oci_orden_trabajo_cerradas_wfx"/>
             <field name="group" ref="group_oci_orden_trabajo_admin"/>
         </record>
 
@@ -178,6 +211,30 @@ this repository contains the full copyright notices and license terms. -->
         </record>
         <record model="ir.model.access" id="rule_group_otc">
             <field name="model" search="[('model', '=', 'oci.orden.trabajo.cerradas')]"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="rule_group_oci_orden_trabajo_cerradas_wfx">
+            <field name="model" search="[('model', '=', 'oci.orden.trabajo.cerradas.wfx')]"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="rule_group_oci_tarea">
+            <field name="model" search="[('model', '=', 'oci.tarea')]"/>
+            <field name="group" ref="group_oci_orden_trabajo_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="rule_group_oci_tarea_loc">
+            <field name="model" search="[('model', '=', 'oci.tarea.loc')]"/>
             <field name="group" ref="group_oci_orden_trabajo_admin"/>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="True"/>
