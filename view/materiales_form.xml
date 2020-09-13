@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<form col="6">
+    <label name="name"/>
+    <field name="name" xexpand="1"/>
+    <newline/>
+    <label name="insumo"/>
+    <field name="insumo" xexpand="1"/>
+    <label name="cantidad"/>
+    <field name="cantidad"/>
+    <label name="nro_serie"/>
+    <field name="nro_serie"/>
+</form>

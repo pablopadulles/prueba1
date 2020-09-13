@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<form col="6">
+    <label name="fecha"/>
+    <field name="fecha" widget="date"/>
+    <label name="nro_abonado"/>
+    <field name="nro_abonado"/>
+    <label name="nro_ot"/>
+    <field name="nro_ot"/>
+    <label name="tecnico"/>
+    <field name="tecnico"/>
+    <label name="central"/>
+    <field name="central"/>
+    <label name="armario"/>
+    <field name="armario"/>
+    <label name="cod_tec"/>
+    <field name="cod_tec"/>
+    <label name="celular"/>
+    <field name="celular"/>
+    <label name="alta"/>
+    <field name="alta"/>
+    <label name="tarea"/>
+    <field name="tarea"/>
+    <label name="loc"/>
+    <field name="loc"/>
+    <label name="sin_visita"/>
+    <field name="sin_visita"/>
+    <newline/>
+    <field name="materiales" colspan="6"/>
+    <field name="observaciones" colspan="6"/>
+</form>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tree>
+    <field name="fecha" widget="date"/>
+    <field name="nro_abonado"/>
+    <field name="nro_ot"/>
+    <field name="tecnico"/>
+    <field name="central"/>
+    <field name="sin_visita" tree_invisible="1"/>
+</tree>

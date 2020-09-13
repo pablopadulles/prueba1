@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+<!--    oci.materiales   -->
+        <record model="ir.ui.view" id="oci_materiales_view_tree">
+            <field name="model">oci.materiales</field>
+            <field name="type">tree</field>
+            <field name="name">materiales_tree</field>
+        </record>
+        <record model="ir.ui.view" id="oci_materiales_view_form">
+            <field name="model">oci.materiales</field>
+            <field name="type">form</field>
+            <field name="name">materiales_form</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_materiales">
+            <field name="name">Materiales</field>
+            <field name="res_model">oci.materiales</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_materiales_view_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="oci_materiales_view_tree"/>
+            <field name="act_window" ref="act_materiales"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_materiales_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="oci_materiales_view_form"/>
+            <field name="act_window" ref="act_materiales"/>
+        </record>
+
+        <menuitem sequence="100" id="menu_materiales" action="act_materiales"/>
+
+
+    </data>
+</tryton>
