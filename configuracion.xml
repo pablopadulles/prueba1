@@ -46,9 +46,34 @@ this repository contains the full copyright notices and license terms. -->
             <field name="menu" ref="oci.menu_materiales"/>
             <field name="group" ref="group_oci_materiales_admin"/>
         </record>
+        <record model="ir.ui.menu-res.group" id="menu_oci_materiales_template_group">
+            <field name="menu" ref="oci.menu_template_oci"/>
+            <field name="group" ref="group_oci_materiales_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_oci_materiales_product_group">
+            <field name="menu" ref="oci.menu_product_oci"/>
+            <field name="group" ref="group_oci_materiales_admin"/>
+        </record>
+
 
         <record model="ir.model.access" id="rule_group_materiales">
             <field name="model" search="[('model', '=', 'oci.materiales')]"/>
+            <field name="group" ref="group_oci_materiales_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="rule_group_materiales_product">
+            <field name="model" search="[('model', '=', 'product.product')]"/>
+            <field name="group" ref="group_oci_materiales_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="rule_group_materiales_template">
+            <field name="model" search="[('model', '=', 'product.template')]"/>
             <field name="group" ref="group_oci_materiales_admin"/>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="True"/>
