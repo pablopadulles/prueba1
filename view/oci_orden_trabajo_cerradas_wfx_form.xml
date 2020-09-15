@@ -25,6 +25,10 @@
     <label name="sin_visita"/>
     <field name="sin_visita"/>
     <newline/>
-    <field name="materiales" colspan="6"/>
-    <field name="observaciones" colspan="6"/>
+    <group col="1" colspan="3" id="materiales">
+        <field name="materiales" colspan="1"/>
+    </group>
+    <group string="Observaciones" col="1" colspan="3" id="observaciones" yexpand="1" yfill="1">
+        <field name="observaciones" colspan="1" yexpand="1" yfill="1"/>
+    </group>
 </form>
