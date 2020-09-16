@@ -709,7 +709,7 @@ class OrdenTrabajoCerradasWFX(ModelView, ModelSQL):
     def on_change_nro_ot(self):
         if not self.nro_ot:
            return
-        self.nro_ot = 'LETRAS' + self.nro_ot.rjust(6, '0')
+        self.nro_ot = 'LMA' + self.nro_ot.rjust(10, '0')
 
     @staticmethod
     def default_fecha():

@@ -15,7 +15,7 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <record model="ir.action.act_window" id="act_oci_central_telecom">
-            <field name="name">Centrales</field>
+            <field name="name">Centrales/Zonas</field>
             <field name="res_model">oci.central.telecom</field>
         </record>
 

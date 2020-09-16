@@ -28,35 +28,35 @@ class OciCentralTelecom(ModelView, ModelSQL):
     'Oci Central/Zona'
     __name__ = 'oci.central.telecom'
 
-    name = fields.Char('Nombre', readonly=True)
+    name = fields.Char('Nombre', readonly=False)
 
 
 class OciArmario(ModelView, ModelSQL):
     'Oci Armario'
     __name__ = 'oci.armario'
 
-    name = fields.Char('Nombre', readonly=True)
+    name = fields.Char('Nombre', readonly=False)
     # categorias = fields.One2Many('oci.armario.categoria', 'armario', 'Categorias')
     # comentario = fields.Char('Comentario')
-    calle = fields.Char('Calle', readonly=True)
-    altura = fields.Char('Altura', readonly=True)
-    nombre_edificio = fields.Char('Nombre del Edificio', readonly=True)
-    manzana = fields.Char('Manzana', readonly=True)
-    central = fields.Many2One('oci.central.telecom', 'Central', readonly=True)
+    calle = fields.Char('Calle', readonly=False)
+    altura = fields.Char('Altura', readonly=False)
+    nombre_edificio = fields.Char('Nombre del Edificio', readonly=False)
+    manzana = fields.Char('Manzana', readonly=False)
+    central = fields.Many2One('oci.central.telecom', 'Central', readonly=False)
 
 
 class OciTerminal(ModelView, ModelSQL):
     'Oci Terminal'
     __name__ = 'oci.terminal'
 
-    name = fields.Char('Nombre', readonly=True)
+    name = fields.Char('Nombre', readonly=False)
     # categorias = fields.One2Many('oci.terminal.categoria', 'terminal', 'Categorias')
     # comentario = fields.Char('Comentario')
-    calle = fields.Char('Calle', readonly=True)
-    altura = fields.Char('Altura', readonly=True)
-    nombre_edificio = fields.Char('Nombre del Edificio', readonly=True)
-    manzana = fields.Char('Manzana', readonly=True)
-    armario = fields.Many2One('oci.armario', 'Armario', readonly=True)
+    calle = fields.Char('Calle', readonly=False)
+    altura = fields.Char('Altura', readonly=False)
+    nombre_edificio = fields.Char('Nombre del Edificio', readonly=False)
+    manzana = fields.Char('Manzana', readonly=False)
+    armario = fields.Many2One('oci.armario', 'Armario', readonly=False)
 
 
 # class OciTerminalCategoria(ModelView, ModelSQL):
