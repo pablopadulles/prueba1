@@ -696,7 +696,7 @@ class OrdenTrabajoCerradasWFX(ModelView, ModelSQL):
         ])
     sin_visita = fields.Boolean('Sin Visitar')
     observaciones = fields.Text('Observaciones')
-    materiales = fields.One2Many('oci.materiales', 'orden_trabajo', 'Materiales')
+    materiales = fields.One2Many('oci.materiales', 'name', 'Materiales')
 
     @fields.depends('tecnico', 'cod_tec', 'celular')
     def on_change_tecnico(self):
