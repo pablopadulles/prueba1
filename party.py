@@ -47,6 +47,14 @@ class Party(metaclass=PoolMeta):
                 'required': True,
                 })
 
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        partys = cls.search([('ivr',) + tuple(clause[1:])], order=[])
+        partys += cls.search([('lastname',) + tuple(clause[1:])], order=[])
+        partys += cls.search([('name',) + tuple(clause[1:])], order=[])
+        partys += cls.search([('legajo',) + tuple(clause[1:])], order=[])
+        return [('id', 'in', [party.id for party in partys])]
+
 
 class Area(ModelView, ModelSQL):
     'Area de trabajo'
