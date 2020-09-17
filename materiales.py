@@ -25,7 +25,7 @@ class Materiales(ModelView, ModelSQL):
     'Materiales'
     __name__ = 'oci.materiales'
 
-    name = fields.Many2One('oci.orden.trabajo.cerradas.wfx', 'OT')
+    name = fields.Many2One('oci.orden.trabajo.cerradas.wfx', 'OT', ondelete='CASCADE')
     insumo = fields.Many2One('product.product', 'Insumo', required=True)
     cantidad = fields.Integer('Cantidad', required=True)
     nro_serie = fields.Char('Nro Serie')

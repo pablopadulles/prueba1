@@ -4,6 +4,8 @@ this repository contains the full copyright notices and license terms. -->
 <tryton>
     <data>
 
+        <menuitem sequence="100" id="menu_materiales" name="Materiales"/>
+
 <!--    oci.materiales   -->
         <record model="ir.ui.view" id="oci_materiales_view_tree">
             <field name="model">oci.materiales</field>
@@ -32,7 +34,8 @@ this repository contains the full copyright notices and license terms. -->
             <field name="act_window" ref="act_materiales"/>
         </record>
 
-        <menuitem sequence="100" id="menu_materiales" action="act_materiales"/>
+        <menuitem sequence="100" id="menu_materiales0" action="act_materiales"
+                  parent="menu_materiales"/>
 
 
     </data>

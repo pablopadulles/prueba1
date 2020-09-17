@@ -13,6 +13,11 @@ this repository contains the full copyright notices and license terms. -->
             <field name="type">tree</field>
             <field name="name">oci_central_telecom_tree</field>
         </record>
+        <record model="ir.ui.view" id="oci_central_telecom_view_form">
+            <field name="model">oci.central.telecom</field>
+            <field name="type">form</field>
+            <field name="name">oci_central_telecom_form</field>
+        </record>
 
         <record model="ir.action.act_window" id="act_oci_central_telecom">
             <field name="name">Centrales/Zonas</field>
@@ -22,6 +27,11 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window.view" id="act_oci_central_telecom_view">
             <field name="sequence" eval="9"/>
             <field name="view" ref="oci_central_telecom_view_tree"/>
+            <field name="act_window" ref="act_oci_central_telecom"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_oci_central_telecom_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="oci_central_telecom_view_form"/>
             <field name="act_window" ref="act_oci_central_telecom"/>
         </record>
 
@@ -34,6 +44,11 @@ this repository contains the full copyright notices and license terms. -->
             <field name="type">tree</field>
             <field name="name">oci_armario_tree</field>
         </record>
+        <record model="ir.ui.view" id="oci_armario_view_form">
+            <field name="model">oci.armario</field>
+            <field name="type">form</field>
+            <field name="name">oci_armario_form</field>
+        </record>
 
         <record model="ir.action.act_window" id="act_oci_armario">
             <field name="name">Armarios</field>
@@ -43,6 +58,11 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window.view" id="act_oci_armario_view">
             <field name="sequence" eval="9"/>
             <field name="view" ref="oci_armario_view_tree"/>
+            <field name="act_window" ref="act_oci_armario"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_oci_armario_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="oci_armario_view_form"/>
             <field name="act_window" ref="act_oci_armario"/>
         </record>
 
@@ -55,6 +75,11 @@ this repository contains the full copyright notices and license terms. -->
             <field name="type">tree</field>
             <field name="name">oci_terminal_tree</field>
         </record>
+        <record model="ir.ui.view" id="oci_terminal_view_form">
+            <field name="model">oci.terminal</field>
+            <field name="type">form</field>
+            <field name="name">oci_terminal_form</field>
+        </record>
 
         <record model="ir.action.act_window" id="act_oci_terminal">
             <field name="name">Terminales</field>
@@ -64,6 +89,11 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window.view" id="act_oci_terminal_view">
             <field name="sequence" eval="9"/>
             <field name="view" ref="oci_terminal_view_tree"/>
+            <field name="act_window" ref="act_oci_terminal"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_oci_terminal_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="oci_terminal_view_form"/>
             <field name="act_window" ref="act_oci_terminal"/>
         </record>
 

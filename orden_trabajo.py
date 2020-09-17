@@ -732,4 +732,4 @@ class LocalizacionTarea(ModelView, ModelSQL):
 
     name = fields.Char('Nombre', required=True)
     code = fields.Char('Codigo')
-    tarea = fields.Many2One('oci.tarea', 'Tarea', required=True)
+    tarea = fields.Many2One('oci.tarea', 'Tarea', required=True, ondelete='CASCADE')
