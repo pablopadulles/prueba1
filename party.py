@@ -55,6 +55,17 @@ class Party(metaclass=PoolMeta):
         partys += cls.search([('legajo',) + tuple(clause[1:])], order=[])
         return [('id', 'in', [party.id for party in partys])]
 
+    def get_rec_name(self, name):
+        res = ''
+        if self.legajo:
+            res += '[' + self.legajo + '] '
+        if self.name:
+            res += self.name
+        if self.lastname:
+            res += ', ' + self.lastname
+
+        return res
+
 
 class Area(ModelView, ModelSQL):
     'Area de trabajo'

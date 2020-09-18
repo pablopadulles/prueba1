@@ -50,8 +50,12 @@ this repository contains the full copyright notices and license terms. -->
             <field name="menu" ref="oci.menu_template_oci"/>
             <field name="group" ref="group_oci_materiales_admin"/>
         </record>
-        <record model="ir.ui.menu-res.group" id="menu_oci_materiales_product_group">
+        <record model="ir.ui.menu-res.group" id="menu_oci_materiales_product_group0">
             <field name="menu" ref="oci.menu_product_oci"/>
+            <field name="group" ref="group_oci_materiales_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_oci_materiales_product_group">
+            <field name="menu" ref="oci.menu_materiales0"/>
             <field name="group" ref="group_oci_materiales_admin"/>
         </record>
 

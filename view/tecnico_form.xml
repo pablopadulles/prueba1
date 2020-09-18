@@ -3,9 +3,11 @@
 this repository contains the full copyright notices and license terms. -->
 <form col="6">
     <label name="name"/>
-    <field name="name" xexpand="1"/>
+    <field name="name"/>
     <label name="lastname"/>
     <field name="lastname"/>
+    <label name="dni"/>
+    <field name="dni"/>
     <label name="cod_tec"/>
     <field name="cod_tec"/>
     <label name="legajo"/>

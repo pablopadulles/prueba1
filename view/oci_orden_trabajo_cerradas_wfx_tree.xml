@@ -6,4 +6,5 @@
     <field name="tecnico"/>
     <field name="central"/>
     <field name="sin_visita" tree_invisible="1"/>
+    <field name="sistema" tree_invisible="1"/>
 </tree>

@@ -68,7 +68,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="act_window" ref="act_product_form_oci"/>
         </record>
 
-        <menuitem parent="menu_materiales" sequence="20" id="menu_product_oci"
+        <menuitem parent="menu_template_oci" sequence="10" id="menu_product_oci"
             action="act_product_form_oci" icon="tryton-list"/>
 
     </data>

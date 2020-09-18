@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <form col="6">
+    <label name="sistema"/>
+    <field name="sistema"/>
+    <newline/>
     <label name="fecha"/>
     <field name="fecha" widget="date"/>
     <label name="nro_abonado"/>

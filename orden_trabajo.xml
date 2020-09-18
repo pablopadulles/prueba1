@@ -122,6 +122,8 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.action.act_window" id="act_oci_orden_trabajo_cerradas_wfx">
             <field name="name">Trabajos WFX</field>
             <field name="res_model">oci.orden.trabajo.cerradas.wfx</field>
+            <field name="domain" eval="[('sistema', '=', 'wfx')]" pyson="1"/>
+            <field name="context" eval="{'sistema': 'wfx'}" pyson="1"/>
         </record>
 
         <record model="ir.action.act_window.view" id="act_oci_orden_trabajo_cerradas_wfx_view">
@@ -138,6 +140,27 @@ this repository contains the full copyright notices and license terms. -->
         <menuitem sequence="20" id="menu_oci_orden_trabajo_cerradas_wfx" action="act_oci_orden_trabajo_cerradas_wfx"
             parent="menu_orden_trabajo0"/>
 
+
+        <record model="ir.action.act_window" id="act_oci_orden_trabajo_cerradas_segat">
+            <field name="name">Trabajos SEGAT</field>
+            <field name="res_model">oci.orden.trabajo.cerradas.wfx</field>
+            <field name="domain" eval="[('sistema', '=', 'segat')]" pyson="1"/>
+            <field name="context" eval="{'sistema': 'segat'}" pyson="1"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_oci_orden_trabajo_cerradas_segat_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="oci_orden_trabajo_cerradas_wfx_view_tree"/>
+            <field name="act_window" ref="act_oci_orden_trabajo_cerradas_segat"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_oci_orden_trabajo_cerradas_segat_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="oci_orden_trabajo_cerradas_wfx_view_form"/>
+            <field name="act_window" ref="act_oci_orden_trabajo_cerradas_segat"/>
+        </record>
+
+        <menuitem sequence="21" id="menu_oci_orden_trabajo_cerradas_segat" action="act_oci_orden_trabajo_cerradas_segat"
+            parent="menu_orden_trabajo0"/>
 <!--    oci.tarea   -->
         <record model="ir.ui.view" id="oci_tarea_view_tree">
             <field name="model">oci.tarea</field>
@@ -166,7 +189,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="act_window" ref="act_oci_tarea"/>
         </record>
 
-        <menuitem sequence="20" id="menu_oci_tarea" action="act_oci_tarea"
+        <menuitem sequence="30" id="menu_oci_tarea" action="act_oci_tarea"
             parent="menu_orden_trabajo0"/>
 
 <!--    oci.tarea.loc   -->
