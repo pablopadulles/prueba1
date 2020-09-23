@@ -675,11 +675,11 @@ class WisardCerrarOrdenTrabajo(Wizard):
 class OrdenTrabajoCerradasWFX(ModelView, ModelSQL):
     'Cierre de las Ordenes de Trabajo WFX'
     __name__ = 'oci.orden.trabajo.cerradas.wfx'
-    _rec_name = 'nro_abonado'
+    _rec_name = 'nro_ot'
 
     fecha = fields.Date('Fecha')
     nro_abonado = fields.Char('Nro Abonado')
-    nro_ot = fields.Char('Orden Trabajo')
+    nro_ot = fields.Char('Orden Trabajo', states={'required': True})
     tecnico = fields.Many2One('party.party', 'Tecnico', domain=[
             ('perfil', '=', 'tec'),
         ])
@@ -699,6 +699,13 @@ class OrdenTrabajoCerradasWFX(ModelView, ModelSQL):
     materiales = fields.One2Many('oci.materiales', 'name', 'Materiales')
     sistema = fields.Selection([('wfx', 'WFX'),('segat', 'SEGAT')], 'Sistema')
     #UPDATE oci_orden_trabajo_cerradas_wfx set sistema = 'wfx'
+
+    @classmethod
+    def __setup__(cls):
+        super(OrdenTrabajoCerradasWFX, cls).__setup__()
+        cls._order.insert(0, ('fecha', 'ASC'))
+        cls._order.insert(1, ('id', 'ASC'))
+
     @fields.depends('tecnico', 'cod_tec', 'celular')
     def on_change_tecnico(self):
         if not self.tecnico:

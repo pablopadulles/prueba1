@@ -3,4 +3,5 @@
     <field name="name"/>
     <field name="insumo"/>
     <field name="cantidad"/>
+    <field name="fecha"/>
 </tree>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<form col="4">
+    <label name="fecha1"/>
+    <field name="fecha1" widget="date"/>
+    <label name="fecha2"/>
+    <field name="fecha2" widget="date"/>
+</form>
