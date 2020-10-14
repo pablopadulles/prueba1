@@ -2,4 +2,6 @@
 <form col="4">
     <label name="ot_sequence"/>
     <field name="ot_sequence" xexpand="1"/>
+    <label name="bono_sequence"/>
+    <field name="bono_sequence" xexpand="1"/>
 </form>

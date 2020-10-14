@@ -21,7 +21,7 @@ class Party(metaclass=PoolMeta):
     __name__ = 'party.party'
 
     lastname = fields.Char('Apellido', states={'required': Bool(Eval('perfil', False))})
-    cod_tec = fields.Char('Cod/Tec')
+    cod_tec = fields.Char('Cod/Tec', states={'required': Bool(Eval('perfil', False))})
     dni = fields.Char('DNI')
     cel_teco = fields.Char('Celular Teco')
     cel = fields.Char('Celular')
@@ -33,9 +33,10 @@ class Party(metaclass=PoolMeta):
         ('tec', 'Tecnico'),
         ('sup', 'Supervisor'),
         ('adm', 'Adminitrativo'),
+        ('chofer', 'Chofer'),
         ], 'Perfil')
-    area = fields.Many2One('oci.area', 'Area')
-    zona = fields.Many2One('oci.zona', 'Zona')
+    categoria = fields.Many2One('oci.categoria', 'Categoria')
+    tarea = fields.Many2One('oci.tarea', 'Tarea')
     grupo = fields.Many2One('oci.grupo', 'Grupo')
     exSupervisor = fields.Boolean('ExSupervisor')
     ivr = fields.Char('IVR')
@@ -46,6 +47,10 @@ class Party(metaclass=PoolMeta):
         cls.name.states.update({
                 'required': True,
                 })
+        t = cls.__table__()
+        # cls._sql_constraints = [
+        #     ('cod_tec_uniq', Unique(t, t.dni),
+        #         'El Cod/Tec debe ser unico e irrepetible.'),]
 
     @classmethod
     def search_rec_name(cls, name, clause):
@@ -65,6 +70,20 @@ class Party(metaclass=PoolMeta):
             res += ', ' + self.lastname
 
         return res
+
+
+class Tarea(ModelView, ModelSQL):
+    'Tarea'
+    __name__ = 'oci.tarea'
+
+    name = fields.Char('Nombre de la tarea', required=True)
+
+
+class Categoria(ModelView, ModelSQL):
+    'Categoria'
+    __name__ = 'oci.categoria'
+
+    name = fields.Char('Nombre de la categoria', required=True)
 
 
 class Area(ModelView, ModelSQL):

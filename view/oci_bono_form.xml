@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<form col="4">
+    <group col="4" colspan="4"  string="General" id="general">
+        <label name="code"/>
+        <field name="code"/>
+        <label name="user1"/>
+        <field name="user1"/>
+        <label name="user2"/>
+        <field name="user2"/>
+        <label name="fecha"/>
+        <field name="fecha"/>
+    </group>
+    <group col="4" colspan="4"  string="Pedido" id="pedido">
+        <label name="name"/>
+        <field name="name" xexpand="1"/>
+        <label name="km1"/>
+        <field name="km1" readonly="1"/>
+        <label name="km2"/>
+        <field name="km2"/>
+        <label name="party"/>
+        <field name="party"/>
+        <label name="monto"/>
+        <field name="monto"/>
+        <label name="type"/>
+        <field name="type"/>
+    </group>
+    <label name="state"/>
+    <field name="state"/>
+    <button name="rendir" string="Rendir" icon="tryton-ok"/>
+    <button name="pendiente" string="Imprimir" icon="tryton-ok"/>
+</form>

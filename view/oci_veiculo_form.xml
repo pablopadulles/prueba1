@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<form col="6">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="km"/>
+    <field name="km"/>
+    <group col="-1" colspan="2" id="checkboxes">
+        <label name="active"/>
+        <field name="active" xexpand="0" width="25"/>
+        <!-- Add here some checkboxes ! -->
+    </group>
+    <label name="monto"/>
+    <field name="monto"/>
+    <label name="marca"/>
+    <field name="marca"/>
+    <label name="modelo"/>
+    <field name="modelo"/>
+    <field name="bonos" colspan="6"/>
+</form>

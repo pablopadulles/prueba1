@@ -39,6 +39,12 @@ ot_sequence = fields.Many2One(
             ('code', '=', 'oci.asignacion.orden.trabajo'),
         ]
         )
+bono_sequence = fields.Many2One(
+        'ir.sequence', 'Bono combustible', required=True,
+        domain=[
+            ('code', '=', 'oci.bono'),
+        ]
+        )
 
 
 # SEQUENCES
@@ -47,13 +53,26 @@ class Configuration(ModelSingleton, ModelSQL, ModelView, MultiValueMixin):
     __name__ = 'oci.configuration'
 
     ot_sequence = fields.MultiValue(ot_sequence)
+    bono_sequence = fields.MultiValue(bono_sequence)
 
 
 class ConfigurationOTSequence(ModelSQL, ValueMixin):
-    'Configuration Sequence'
+    'Configuration Sequence OT'
     __name__ = 'oci.configuration.ot_sequence'
 
     ot_sequence = ot_sequence
+    #_configuration_value_field = 'recorrido_sequence'
+
+    @classmethod
+    def check_xml_record(cls, records, values):
+        return True
+
+
+class ConfigurationBonoSequence(ModelSQL, ValueMixin):
+    'Configuration Sequence Bono'
+    __name__ = 'oci.configuration.bono_sequence'
+
+    bono_sequence = bono_sequence
     #_configuration_value_field = 'recorrido_sequence'
 
     @classmethod

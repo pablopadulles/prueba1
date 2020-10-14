@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+        <record model="ir.ui.view" id="oci_desde_hasta_fechas">
+            <field name="model">oci.desde.hasta.fechas</field>
+            <field name="type">form</field>
+            <field name="name">desde_hasta_fechas_form</field>
+        </record>
+
+        <!--    Wizard Report Imprimir WFX -->
+
+        <record model="ir.action.wizard" id="oci_wizard_ot_wfx">
+            <field name="name">Imprimir WFX</field>
+            <field name="wiz_name">oci.wizard.ot.wfx</field>
+            <field name="window" eval="False"/>
+        </record>
+        <menuitem action="oci_wizard_ot_wfx" id="menu_wizard_ot_wfx"
+            sequence="500"/>
+
+        <!--    Wizard Report Nafta Entre fechas -->
+
+        <record model="ir.action.wizard" id="oci_wizard_combustible">
+            <field name="name">Combustible entre fechas</field>
+            <field name="wiz_name">oci.wizard.combustible</field>
+            <field name="window" eval="False"/>
+        </record>
+        <menuitem action="oci_wizard_combustible" id="menu_wizard_oci_wizard_combustible"
+            sequence="500" parent="menu_veiculo"/>
+
+
+
+    </data>
+</tryton>

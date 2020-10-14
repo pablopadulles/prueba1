@@ -18,8 +18,8 @@ this repository contains the full copyright notices and license terms. -->
     <field name="cel_teco"/>
     <label name="perfil"/>
     <field name="perfil"/>
-    <label name="area"/>
-    <field name="area"/>
+    <label name="tarea"/>
+    <field name="tarea" widget="selection"/>
 <!--    <group col="-1" colspan="2" id="checkboxes">-->
 <!--        <label name="active"/>-->
 <!--        <field name="active" xexpand="0" width="25"/>-->
@@ -29,10 +29,10 @@ this repository contains the full copyright notices and license terms. -->
     <field name="fecha_ingreso" widget="date"/>
     <label name="fecha_baja"/>
     <field name="fecha_baja" widget="date"/>
-    <label name="grupo"/>
-    <field name="grupo"/>
-    <label name="zona"/>
-    <field name="zona"/>
+    <label name="categoria"/>
+    <field name="categoria" widget="selection"/>
+<!--    <label name="zona"/>-->
+<!--    <field name="zona"/>-->
     <label name="exSupervisor"/>
     <field name="exSupervisor"/>
     <label name="ivr"/>

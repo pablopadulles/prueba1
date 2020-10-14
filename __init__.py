@@ -8,6 +8,9 @@ from . import armario
 # from . import herramientas
 from . import configuracion
 from . import materiales
+from . import wizard
+from . import report
+from . import veiculos
 
 
 def register():
@@ -17,6 +20,8 @@ def register():
         party.Zona,
         party.Grupo,
         party.ZonaArmario,
+        party.Categoria,
+        party.Tarea,
         orden_trabajo.OrdenTrabajo,
         orden_trabajo.OrdenTrabajoCerradas,
         orden_trabajo.AsignacioOrdenTrabajo,
@@ -30,6 +35,10 @@ def register():
         materiales.Materiales,
         configuracion.Configuration,
         configuracion.ConfigurationOTSequence,
+        configuracion.ConfigurationBonoSequence,
+        wizard.DesdeHastaFechas,
+        veiculos.Veiculo,
+        veiculos.Bono,
         # oreden_trabajo.OrdenDeTrabajo,
         # herramientas.OrdenDeTrabajo,
         # configuracion.ConfigurationSequence,
@@ -38,6 +47,13 @@ def register():
     Pool.register(
         orden_trabajo.WisardCargarOrdenTrabajo,
         orden_trabajo.WisardCerrarOrdenTrabajo,
+        wizard.WizardOTWFX,
+        wizard.WizardCombustible,
         #     party.PartyReplace,
     #     party.PartyErase,
         module='oci', type_='wizard')
+    Pool.register(
+        report.ReportOTWFX,
+        report.ReportBono,
+        report.ReportCombustible,
+        module='oci', type_='report')

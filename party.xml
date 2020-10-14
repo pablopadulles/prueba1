@@ -48,6 +48,15 @@ this repository contains the full copyright notices and license terms. -->
                 eval="[('perfil', '=', 'sup')]"
                 pyson="1"/>
         </record>
+        <record model="ir.action.act_window" id="act_win_chofer">
+            <field name="name">Choferes</field>
+            <field name="res_model">party.party</field>
+            <field name="context"
+                eval="{'perfil': 'chofer'}" pyson="1"/>
+            <field name="domain"
+                eval="[('perfil', '=', 'chofer')]"
+                pyson="1"/>
+        </record>
 
         <record model="ir.action.act_window.view" id="act_win_v_tecnico_view_tree">
             <field name="sequence" eval="9"/>
@@ -61,6 +70,20 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <menuitem sequence="0" id="menu_tecnico" action="act_win_tecnico"
+            parent="menu_tecnico0"/>
+
+        <record model="ir.action.act_window.view" id="act_win_v_chofer_view_tree">
+            <field name="sequence" eval="9"/>
+            <field name="view" ref="tecnico_view_tree"/>
+            <field name="act_window" ref="act_win_chofer"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_win_v_chofer_view_form">
+            <field name="sequence" eval="19"/>
+            <field name="view" ref="tecnico_view_form"/>
+            <field name="act_window" ref="act_win_chofer"/>
+        </record>
+
+        <menuitem sequence="1" id="menu_chofer" action="act_win_chofer"
             parent="menu_tecnico0"/>
 
 <!--    Area   -->
@@ -91,6 +114,66 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <menuitem sequence="0" id="menu_area" action="act_win_area"
+            parent="menu_tecnico0"/>
+
+<!--    Tarea   -->
+        <record model="ir.ui.view" id="tarea_view_form">
+            <field name="model">oci.tarea</field>
+            <field name="type">form</field>
+            <field name="name">tarea_form</field>
+        </record>
+        <record model="ir.ui.view" id="tarea_view_tree">
+            <field name="model">oci.tarea</field>
+            <field name="type">tree</field>
+            <field name="name">tarea_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_win_tarea">
+            <field name="name">Tareas</field>
+            <field name="res_model">oci.tarea</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_win_v_tarea_view_tree">
+            <field name="sequence" eval="9"/>
+            <field name="view" ref="tarea_view_tree"/>
+            <field name="act_window" ref="act_win_tarea"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_win_v_tarea_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="tarea_view_form"/>
+            <field name="act_window" ref="act_win_tarea"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_tarea" action="act_win_tarea"
+            parent="menu_tecnico0"/>
+
+<!--    Categoria   -->
+        <record model="ir.ui.view" id="categoria_view_form">
+            <field name="model">oci.categoria</field>
+            <field name="type">form</field>
+            <field name="name">categoria_form</field>
+        </record>
+        <record model="ir.ui.view" id="categoria_view_tree">
+            <field name="model">oci.categoria</field>
+            <field name="type">tree</field>
+            <field name="name">categoria_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_win_categoria">
+            <field name="name">Categorias</field>
+            <field name="res_model">oci.categoria</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_win_v_categoria_view_tree">
+            <field name="sequence" eval="9"/>
+            <field name="view" ref="categoria_view_tree"/>
+            <field name="act_window" ref="act_win_categoria"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_win_v_categoria_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="categoria_view_form"/>
+            <field name="act_window" ref="act_win_categoria"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_categoria" action="act_win_categoria"
             parent="menu_tecnico0"/>
 
 <!--    Zona   -->

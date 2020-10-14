@@ -294,6 +294,15 @@ this repository contains the full copyright notices and license terms. -->
             <field name="sequence_type" ref="sequence_type_ot_sequence"/>
             <field name="group" ref="res.group_admin"/>
         </record>
+        <record model="ir.sequence.type" id="sequence_type_bono_sequence">
+            <field name="name">Bono</field>
+            <field name="code">oci.bono</field>
+        </record>
+        <record model="ir.sequence.type-res.group"
+            id="sequence_type_group_admin2">
+            <field name="sequence_type" ref="sequence_type_bono_sequence"/>
+            <field name="group" ref="res.group_admin"/>
+        </record>
 
 <!--     oci.configuration -->
 

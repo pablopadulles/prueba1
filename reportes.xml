@@ -1,0 +1,32 @@
+<tryton>
+    <data>
+        <record model="ir.action.report" id="report_ot_wfx">
+            <field name="name">OT WFX</field>
+            <field name="model"></field>
+            <field name="report_name">oci.report.ot.wfx</field>
+            <field name="report">oci/ot_wfx.fods</field>
+            <field name="direct_print">0</field>
+            <field name="extension">xls</field>
+        </record>
+
+        <record model="ir.action.report" id="imprimir_bono">
+            <field name="name">Imprimir Bono</field>
+            <field name="model">oci.bono</field>
+            <field name="report_name">oci.bono.print</field>
+            <field name="report">oci/bono.fodt</field>
+            <field name="direct_print">0</field>
+            <field name="extension">pdf</field>
+        </record>
+
+        <record model="ir.action.report" id="oci_report_combustible">
+            <field name="name">Imprimir Bono</field>
+            <field name="model"></field>
+            <field name="report_name">oci.report.combustible</field>
+            <field name="report">oci/report_combustible.fodt</field>
+            <field name="direct_print">0</field>
+            <field name="extension">pdf</field>
+        </record>
+
+
+    </data>
+</tryton>
