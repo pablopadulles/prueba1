@@ -5,6 +5,15 @@ this repository contains the full copyright notices and license terms. -->
     <data>
         <menuitem name="Configuracion" id="menu_config" sequence="900"/>
 
+        <record model="res.group" id="group_oci_veiculos_admin">
+            <field name="name">OCI Veiculos(Admin)</field>
+        </record>
+        <record model="res.user-res.group"
+            id="user_admin_veiculos_group_oci_admin">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_oci_veiculos_admin"/>
+        </record>
+
         <record model="res.group" id="group_oci_armario_admin">
             <field name="name">OCI Armarios(Admin)</field>
         </record>
@@ -13,6 +22,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="user" ref="res.user_admin"/>
             <field name="group" ref="group_oci_armario_admin"/>
         </record>
+
         <record model="res.group" id="group_oci_materiales_admin">
             <field name="name">OCI Materiales(Admin)</field>
         </record>
@@ -282,6 +292,38 @@ this repository contains the full copyright notices and license terms. -->
 <!--            <field name="perm_create" eval="True"/>-->
 <!--            <field name="perm_delete" eval="False"/>-->
 <!--        </record>-->
+
+        <!-- reglas de acceso Veiculos-->
+        <!--        acceso al los menus-->
+        <record model="ir.ui.menu-res.group" id="menu_oci_veiculo_group">
+            <field name="menu" ref="oci.menu_veiculo"/>
+            <field name="group" ref="group_oci_veiculos_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_oci_veiculos_group">
+            <field name="menu" ref="oci.menu_oci_veiculo"/>
+            <field name="group" ref="group_oci_veiculos_admin"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_oci_veiculos_group0">
+            <field name="menu" ref="oci.menu_oci_bono"/>
+            <field name="group" ref="group_oci_veiculos_admin"/>
+        </record>
+
+        <record model="ir.model.access" id="rule_group_veiculo">
+            <field name="model" search="[('model', '=', 'oci.veiculo')]"/>
+            <field name="group" ref="group_oci_veiculos_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="rule_group_bono">
+            <field name="model" search="[('model', '=', 'oci.bono')]"/>
+            <field name="group" ref="group_oci_veiculos_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
 
 
 <!--    sequence -->
