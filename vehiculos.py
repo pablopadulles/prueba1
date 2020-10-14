@@ -16,7 +16,7 @@ from trytond.tools.multivalue import migrate_property
 from trytond.tools import lstrip_wildcard
 import xlrd
 from .exceptions import (
-    InvalidIdentifierCode, VIESUnavailable, SimilarityWarning, EraseError)
+    EraseError)
 
 logger = logging.getLogger(__name__)
 
@@ -75,14 +75,14 @@ class Bono(Workflow, ModelView, ModelSQL):
     __name__ = 'oci.bono'
 
     name = fields.Many2One('oci.vehiculo', 'vehiculo', required=True,
-            states={'readonly': Not(Eval('state').in_(['rendido', 'borrador']))})
+            states={'readonly': Not(Eval('state').in_(['borrador']))})
     user1 = fields.Many2One('res.user', 'Genera Bono', readonly=True)
     user2 = fields.Many2One('res.user', 'Recibe Rendido', readonly=True)
     party = fields.Many2One('party.party', 'Chofer', domain=[('perfil', '=', 'chofer')],
             states={'readonly': Eval('state').in_(['rendido', 'pendiente'])}, required=True)
     km1 = fields.Numeric('Km actuales')
     km2 = fields.Numeric('Km actualizados', help='Actualiza el kilometraje del vehiculo',
-            states={'readonly': Not(Eval('state').in_(['rendido', 'borrador']))})
+            states={'readonly': Not(Eval('state').in_(['pendiente']))})
     monto = fields.Numeric('Monto', required=True,
             states={'readonly': Eval('state').in_(['rendido', 'pendiente'])})
     fecha = fields.Date('Fecha', required=True, states={'readonly': Eval('state').in_(['rendido', 'pendiente'])})
@@ -133,6 +133,9 @@ class Bono(Workflow, ModelView, ModelSQL):
             user = Transaction().context.get('user')
         for bono in bonos:
             bono.user2 = user
+            if bono.name.km > bono.km2:
+                raise EraseError(
+                gettext('oci.msg_kilometros'))
             if bono.km2:
                 bono.name.km = bono.km2
                 bono.name.save()

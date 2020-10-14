@@ -26,3 +26,6 @@ class EraseError(ValidationError):
 
 class InvalidFormat(ValidationError):
     pass
+
+class InvalidKM(ValidationError):
+    pass
