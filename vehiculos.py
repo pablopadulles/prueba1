@@ -75,14 +75,14 @@ class Bono(Workflow, ModelView, ModelSQL):
     __name__ = 'oci.bono'
 
     name = fields.Many2One('oci.vehiculo', 'vehiculo', required=True,
-            states={'readonly': Eval('state').in_(['rendido', 'borrador'])})
+            states={'readonly': Not(Eval('state').in_(['rendido', 'borrador']))})
     user1 = fields.Many2One('res.user', 'Genera Bono', readonly=True)
     user2 = fields.Many2One('res.user', 'Recibe Rendido', readonly=True)
     party = fields.Many2One('party.party', 'Chofer', domain=[('perfil', '=', 'chofer')],
             states={'readonly': Eval('state').in_(['rendido', 'pendiente'])}, required=True)
     km1 = fields.Numeric('Km actuales')
     km2 = fields.Numeric('Km actualizados', help='Actualiza el kilometraje del vehiculo',
-            states={'readonly': Eval('state').in_(['rendido', 'borrador'])})
+            states={'readonly': Not(Eval('state').in_(['rendido', 'borrador']))})
     monto = fields.Numeric('Monto', required=True,
             states={'readonly': Eval('state').in_(['rendido', 'pendiente'])})
     fecha = fields.Date('Fecha', required=True, states={'readonly': Eval('state').in_(['rendido', 'pendiente'])})

@@ -4,7 +4,7 @@ this repository contains the full copyright notices and license terms. -->
 <tryton>
     <data>
 
-        <menuitem sequence="10" id="menu_vehiculo" name="Veiculos"
+        <menuitem sequence="10" id="menu_vehiculo" name="Vehiculos"
             />
 
 <!--    oci.vehiculo   -->
