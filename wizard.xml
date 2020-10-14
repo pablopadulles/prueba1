@@ -28,7 +28,7 @@ this repository contains the full copyright notices and license terms. -->
             <field name="window" eval="False"/>
         </record>
         <menuitem action="oci_wizard_combustible" id="menu_wizard_oci_wizard_combustible"
-            sequence="500" parent="menu_veiculo"/>
+            sequence="500" parent="menu_vehiculo"/>
 
 
 

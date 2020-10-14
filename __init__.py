@@ -10,7 +10,7 @@ from . import configuracion
 from . import materiales
 from . import wizard
 from . import report
-from . import veiculos
+from . import vehiculos
 
 
 def register():
@@ -37,8 +37,8 @@ def register():
         configuracion.ConfigurationOTSequence,
         configuracion.ConfigurationBonoSequence,
         wizard.DesdeHastaFechas,
-        veiculos.Veiculo,
-        veiculos.Bono,
+        vehiculos.Vehiculo,
+        vehiculos.Bono,
         # oreden_trabajo.OrdenDeTrabajo,
         # herramientas.OrdenDeTrabajo,
         # configuracion.ConfigurationSequence,

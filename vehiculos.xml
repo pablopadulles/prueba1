@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+        <menuitem sequence="10" id="menu_vehiculo" name="Veiculos"
+            />
+
+<!--    oci.vehiculo   -->
+        <record model="ir.ui.view" id="oci_vehiculo_view_tree">
+            <field name="model">oci.vehiculo</field>
+            <field name="type">tree</field>
+            <field name="name">oci_vehiculo_tree</field>
+        </record>
+        <record model="ir.ui.view" id="oci_vehiculo_view_form">
+            <field name="model">oci.vehiculo</field>
+            <field name="type">form</field>
+            <field name="name">oci_vehiculo_form</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_oci_vehiculo">
+            <field name="name">Vehiculos</field>
+            <field name="res_model">oci.vehiculo</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_oci_vehiculo_view">
+            <field name="sequence" eval="9"/>
+            <field name="view" ref="oci_vehiculo_view_tree"/>
+            <field name="act_window" ref="act_oci_vehiculo"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_oci_vehiculo_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="oci_vehiculo_view_form"/>
+            <field name="act_window" ref="act_oci_vehiculo"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_oci_vehiculo" action="act_oci_vehiculo"
+            parent="menu_vehiculo"/>
+
+<!--    oci.bono   -->
+        <record model="ir.ui.view" id="oci_bono_view_tree">
+            <field name="model">oci.bono</field>
+            <field name="type">tree</field>
+            <field name="name">oci_bono_tree</field>
+        </record>
+        <record model="ir.ui.view" id="oci_bono_view_form">
+            <field name="model">oci.bono</field>
+            <field name="type">form</field>
+            <field name="name">oci_bono_form</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_oci_bono">
+            <field name="name">Bonos</field>
+            <field name="res_model">oci.bono</field>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_oci_bono_pendiente">
+            <field name="name">Pendiente</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain" eval="[('state', '=', 'pendiente')]" pyson="1"/>
+            <field name="count" eval="True"/>
+            <field name="act_window" ref="act_oci_bono"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_oci_bono_rendido">
+            <field name="name">Rendido</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain" eval="[('state', '=', 'rendido')]" pyson="1"/>
+            <field name="count" eval="True"/>
+            <field name="act_window" ref="act_oci_bono"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_oci_bono_view">
+            <field name="sequence" eval="9"/>
+            <field name="view" ref="oci_bono_view_tree"/>
+            <field name="act_window" ref="act_oci_bono"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_oci_bono_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="oci_bono_view_form"/>
+            <field name="act_window" ref="act_oci_bono"/>
+        </record>
+
+        <menuitem sequence="0" id="menu_oci_bono" action="act_oci_bono"
+            parent="menu_vehiculo"/>
+    </data>
+</tryton>

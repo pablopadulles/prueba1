@@ -15,9 +15,9 @@ class ReportCombustible(Report):
     @classmethod
     def _get_records(cls, data):
         res = []
-        Veiculos = Pool().get('oci.veiculo')
-        veiculos = Veiculos.search([])
-        return veiculos
+        Vehiculos = Pool().get('oci.vehiculo')
+        vehiculos = Vehiculos.search([])
+        return vehiculos
 
         # t = time(8, 0,0)
         # t2 = time(23, 0,0)
@@ -35,7 +35,7 @@ class ReportCombustible(Report):
     @classmethod
     def get_context(cls, records, data):
         report_context = super(ReportCombustible, cls).get_context(records, data)
-        report_context['veiculos'] = cls._get_records(data)
+        report_context['vehiculos'] = cls._get_records(data)
         return report_context
 
 
