@@ -21,7 +21,7 @@ class Party(metaclass=PoolMeta):
     __name__ = 'party.party'
 
     lastname = fields.Char('Apellido', states={'required': Bool(Eval('perfil', False))})
-    cod_tec = fields.Char('Cod/Tec', states={'required': Bool(Eval('perfil', False))})
+    cod_tec = fields.Char('Cod/Tec', states={'required': Bool(Eval('perfil').in_(['tec']))})
     dni = fields.Char('DNI')
     cel_teco = fields.Char('Celular Teco')
     cel = fields.Char('Celular')
@@ -70,6 +70,11 @@ class Party(metaclass=PoolMeta):
             res += ', ' + self.lastname
 
         return res
+
+    @staticmethod
+    def order_legajo(tables):
+        table, _ = tables[None]
+        return [CharLength(table.legajo), table.legajo]
 
 
 class Tarea(ModelView, ModelSQL):
