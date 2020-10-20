@@ -86,7 +86,7 @@ class Bono(Workflow, ModelView, ModelSQL):
     monto = fields.Numeric('Monto', required=True,
             states={'readonly': Eval('state').in_(['rendido', 'pendiente'])})
     fecha = fields.Date('Fecha', required=True, states={'readonly': Eval('state').in_(['rendido', 'pendiente'])})
-    code = fields.Char('Codigo', readonly=True)
+    code = fields.Char('Numero', readonly=True)
     type = fields.Selection([
             (None, ''),
             ('nafta', 'Nafta'),

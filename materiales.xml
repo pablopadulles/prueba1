@@ -4,7 +4,7 @@ this repository contains the full copyright notices and license terms. -->
 <tryton>
     <data>
 
-        <menuitem sequence="100" id="menu_materiales" name="Materiales"/>
+        <menuitem sequence="100" id="menu_materiales" name="Materiales" action=""/>
 
 <!--    oci.materiales   -->
         <record model="ir.ui.view" id="oci_materiales_view_tree">
