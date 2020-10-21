@@ -15,9 +15,16 @@ class ReportCombustible(Report):
     @classmethod
     def _get_records(cls, data):
         res = []
-        Vehiculos = Pool().get('oci.vehiculo')
-        vehiculos = Vehiculos.search([])
-        return vehiculos
+        Vehiculo = Pool().get('oci.vehiculo')
+        Bono = Pool().get('oci.bono')
+        vehiculos = Vehiculo.search([])
+        for vehiculo in vehiculos:
+            bonos = Bono.search([('name', '=', vehiculo),
+                        ('fecha', '>=', data.get('fecha1')),
+                        ('fecha', '<=', data.get('fecha2'))])
+            if bonos:
+                res.append(vehiculo)
+        return res
 
         # t = time(8, 0,0)
         # t2 = time(23, 0,0)
