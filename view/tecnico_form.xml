@@ -10,6 +10,8 @@ this repository contains the full copyright notices and license terms. -->
     <field name="dni"/>
     <label name="cod_tec"/>
     <field name="cod_tec"/>
+    <label name="password"/>
+    <field name="password" widget="password"/>
     <label name="legajo"/>
     <field name="legajo"/>
     <label name="cel"/>

@@ -2,10 +2,12 @@ from stdnum import get_cc_module
 import stdnum.exceptions
 from sql import Null, Column, Literal
 from sql.functions import CharLength, Substring, Position
+from sql.operators import Equal
 
 from trytond.i18n import gettext
 from trytond.model import (ModelView, ModelSQL, MultiValueMixin, ValueMixin,
-    DeactivableMixin, fields, Unique, sequence_ordered)
+    DeactivableMixin, fields, Unique, sequence_ordered, Exclude)
+
 from trytond.wizard import Wizard, StateTransition, StateView, Button
 from trytond.pyson import Eval, Bool, Not
 from trytond.transaction import Transaction
@@ -22,6 +24,10 @@ class Party(metaclass=PoolMeta):
 
     lastname = fields.Char('Apellido', states={'required': Bool(Eval('perfil', False))})
     cod_tec = fields.Char('Cod/Tec', states={'required': Bool(Eval('perfil').in_(['tec']))})
+    password_hash = fields.Char('Password Hash')
+    password = fields.Function(fields.Char(
+            "Password"),
+        getter='get_password', setter='set_password')
     dni = fields.Char('DNI')
     cel_teco = fields.Char('Celular Teco')
     cel = fields.Char('Celular')
@@ -60,6 +66,9 @@ class Party(metaclass=PoolMeta):
         partys += cls.search([('legajo',) + tuple(clause[1:])], order=[])
         return [('id', 'in', [party.id for party in partys])]
 
+    def get_password(self, name):
+        return 'x' * 10
+
     def get_rec_name(self, name):
         res = ''
         if self.legajo:
@@ -75,6 +84,18 @@ class Party(metaclass=PoolMeta):
     def order_legajo(tables):
         table, _ = tables[None]
         return [CharLength(table.legajo), table.legajo]
+
+    @classmethod
+    def set_password(cls, users, name, value):
+        if value == 'x' * 10:
+            return
+
+        to_write = []
+        for user in users:
+            to_write.extend([[user], {
+                        'password_hash': value,
+                        }])
+        cls.write(*to_write)
 
 
 class Tarea(ModelView, ModelSQL):

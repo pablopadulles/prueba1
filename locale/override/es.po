@@ -1,10 +1,10 @@
 msgctxt "field:stock.configuration,shipment_in_return_sequence:stock."
 msgid "Supplier Return Shipment Sequence"
-msgstr "Secuencia remito de devolución proveedor"
+msgstr "Secuencia remito de devolución Entrada"
 
 msgctxt "field:stock.configuration,shipment_in_sequence:stock."
 msgid "Supplier Shipment Sequence"
-msgstr "Secuencia remito de proveedor"
+msgstr "Secuencia remito de Entrada"
 
 msgctxt "field:stock.configuration,shipment_internal_sequence:stock."
 msgid "Internal Shipment Sequence"
@@ -16,23 +16,23 @@ msgstr "Transito remitos internos"
 
 msgctxt "field:stock.configuration,shipment_out_return_sequence:stock."
 msgid "Customer Return Shipment Sequence"
-msgstr "Secuencia remito devolución cliente"
+msgstr "Secuencia remito devolución Salida"
 
 msgctxt "field:stock.configuration,shipment_out_sequence:stock."
 msgid "Customer Shipment Sequence"
-msgstr "Secuencia remito de cliente"
+msgstr "Secuencia remito de Salida"
 
 msgctxt "field:stock.configuration.location,shipment_internal_transit:stock."
 msgid "Internal Shipment Transit"
 msgstr "Transito remitos internos"
 
-msgctxt "field:stock.configuration.sequence,shipment_in_return_sequence:stock."
+msgctxt "field:stock.configuration.sequence,shipment_in_return_sequence:stock"
 msgid "Supplier Return Shipment Sequence"
-msgstr "Secuencia remito de devolución proveedor"
+msgstr "Secuencia remito de devolución Entrada"
 
 msgctxt "field:stock.configuration.sequence,shipment_in_sequence:stock."
 msgid "Supplier Shipment Sequence"
-msgstr "Secuencia remito de proveedor"
+msgstr "Secuencia remito de Entrada"
 
 msgctxt "field:stock.configuration.sequence,shipment_internal_sequence:stock."
 msgid "Internal Shipment Sequence"
@@ -40,11 +40,11 @@ msgstr "Secuencia remito interno"
 
 msgctxt "field:stock.configuration.sequence,shipment_out_return_sequence:stock."
 msgid "Customer Return Shipment Sequence"
-msgstr "Secuencia remito de devolución cliente"
+msgstr "Secuencia remito de devolución Salida"
 
 msgctxt "field:stock.configuration.sequence,shipment_out_sequence:stock."
 msgid "Customer Shipment Sequence"
-msgstr "Secuencia remito de cliente"
+msgstr "Secuencia remito de Salida"
 
 msgctxt "field:stock.move,shipment:stock."
 msgid "Shipment"
@@ -54,11 +54,11 @@ msgctxt "help:stock.configuration,shipment_in_return_sequence:stock."
 msgid "Used to generate the number given to supplier return shipments."
 msgstr ""
 "Usado para generar el número asignado a los remitos de devolución de "
-"proveedor."
+"Entrada."
 
 msgctxt "help:stock.configuration,shipment_in_sequence:stock."
 msgid "Used to generate the number given to supplier shipments."
-msgstr "Usado para generar el número asignado a los remitos de proveedor."
+msgstr "Usado para generar el número asignado a los remitos de Entrada."
 
 msgctxt "help:stock.configuration,shipment_internal_sequence:stock."
 msgid "Used to generate the number given to internal shipments."
@@ -68,11 +68,11 @@ msgctxt "help:stock.configuration,shipment_out_return_sequence:stock."
 msgid "Used to generate the number given to customer return shipments."
 msgstr ""
 "Usado para generar el número asignado a los remitos de devolución de "
-"cliente."
+"Salida."
 
 msgctxt "help:stock.configuration,shipment_out_sequence:stock."
 msgid "Used to generate the number given to customer shipments."
-msgstr "Usado para generar el número asignado a los remitos de cliente."
+msgstr "Usado para generar el número asignado a los remitos de Salida."
 
 msgctxt "help:stock.shipment.in,company:stock."
 msgid "The company the shipment is associated with."
@@ -84,7 +84,7 @@ msgstr "El identificador principal del remito."
 
 msgctxt "help:stock.shipment.in,reference:stock."
 msgid "The supplier's identifier for the shipment."
-msgstr "El identificador del proveedor para el remito."
+msgstr "El identificador del Entrada para el remito."
 
 msgctxt "help:stock.shipment.in,state:stock."
 msgid "The current state of the shipment."
@@ -100,7 +100,7 @@ msgstr "El identificador principal del remito."
 
 msgctxt "help:stock.shipment.in.return,reference:stock."
 msgid "The supplier's identifier for the shipment."
-msgstr "El identificador del proveedor para el remito."
+msgstr "El identificador del Entrada para el remito."
 
 msgctxt "help:stock.shipment.in.return,state:stock."
 msgid "The current state of the shipment."
@@ -144,7 +144,7 @@ msgstr "El identificador principal del remito."
 
 msgctxt "help:stock.shipment.out,reference:stock."
 msgid "The customer's identifier for the shipment."
-msgstr "El identificador del cliente para el remito."
+msgstr "El identificador del Salida para el remito."
 
 msgctxt "help:stock.shipment.out,state:stock."
 msgid "The current state of the shipment."
@@ -160,7 +160,7 @@ msgstr "El identificador principal del remito."
 
 msgctxt "help:stock.shipment.out.return,reference:stock."
 msgid "The customer's identifier for the shipment."
-msgstr "El identificador del cliente para el remito."
+msgstr "El identificador del Salida para el remito."
 
 msgctxt "help:stock.shipment.out.return,state:stock."
 msgid "The current state of the shipment."
@@ -168,11 +168,11 @@ msgstr "El estado actual del remito."
 
 msgctxt "model:ir.action,name:stock.act_shipment_in_form"
 msgid "Supplier Shipments"
-msgstr "Remitos de proveedor"
+msgstr "Remitos de Entrada"
 
 msgctxt "model:ir.action,name:stock.act_shipment_in_return_form"
 msgid "Supplier Return Shipments"
-msgstr "Remitos de devolución de proveedor"
+msgstr "Remitos de devolución de Entrada"
 
 msgctxt "model:ir.action,name:stock.act_shipment_internal_form"
 msgid "Internal Shipments"
@@ -180,19 +180,19 @@ msgstr "Remitos internos"
 
 msgctxt "model:ir.action,name:stock.act_shipment_out_form"
 msgid "Customer Shipments"
-msgstr "Remitos de cliente"
+msgstr "Remitos de Salida"
 
 msgctxt "model:ir.action,name:stock.act_shipment_out_form2"
 msgid "Customer Shipments"
-msgstr "Remitos de cliente"
+msgstr "Remitos de Salida"
 
 msgctxt "model:ir.action,name:stock.act_shipment_out_form3"
 msgid "Supplier Shipments"
-msgstr "Remitos de proveedores"
+msgstr "Remitos de Entrada"
 
 msgctxt "model:ir.action,name:stock.act_shipment_out_return_form"
 msgid "Customer Return Shipments"
-msgstr "Remitos de devolución de cliente"
+msgstr "Remitos de devolución de Salida"
 
 msgctxt "model:ir.action,name:stock.report_shipment_internal"
 msgid "Internal Shipment"
@@ -208,7 +208,7 @@ msgstr "Reservar remito interno"
 
 msgctxt "model:ir.action,name:stock.wizard_shipment_out_assign"
 msgid "Assign Customer Shipment"
-msgstr "Reservar remito de cliente"
+msgstr "Reservar remito de Salida"
 
 msgctxt "model:ir.message,text:stock.msg_erase_party_shipment"
 msgid ""
@@ -240,11 +240,11 @@ msgstr "Seguro que quieres recibir el remito?"
 
 msgctxt "model:ir.sequence,name:stock.sequence_shipment_in"
 msgid "Supplier Shipment"
-msgstr "Remito de proveedor"
+msgstr "Remito de Entrada"
 
 msgctxt "model:ir.sequence,name:stock.sequence_shipment_in_return"
 msgid "Supplier Return Shipment"
-msgstr "Remito de devolución de proveedor"
+msgstr "Remito de devolución de Entrada"
 
 msgctxt "model:ir.sequence,name:stock.sequence_shipment_internal"
 msgid "Internal Shipment"
@@ -252,19 +252,19 @@ msgstr "Remito interno"
 
 msgctxt "model:ir.sequence,name:stock.sequence_shipment_out"
 msgid "Customer Shipment"
-msgstr "Remito de cliente"
+msgstr "Remito de Salida"
 
 msgctxt "model:ir.sequence,name:stock.sequence_shipment_out_return"
 msgid "Customer Return Shipment"
-msgstr "Remito de devolución de cliente"
+msgstr "Remito de devolución de Salida"
 
 msgctxt "model:ir.sequence.type,name:stock.sequence_type_shipment_in"
 msgid "Supplier Shipment"
-msgstr "Remito de proveedor"
+msgstr "Remito de Entrada"
 
 msgctxt "model:ir.sequence.type,name:stock.sequence_type_shipment_in_return"
 msgid "Supplier Return Shipment"
-msgstr "Remito de devolución de proveedor"
+msgstr "Remito de devolución de Entrada"
 
 msgctxt "model:ir.sequence.type,name:stock.sequence_type_shipment_internal"
 msgid "Internal Shipment"
@@ -272,23 +272,23 @@ msgstr "Remito interno"
 
 msgctxt "model:ir.sequence.type,name:stock.sequence_type_shipment_out"
 msgid "Customer Shipment"
-msgstr "Remito de cliente"
+msgstr "Remito de Salida"
 
 msgctxt "model:ir.sequence.type,name:stock.sequence_type_shipment_out_return"
 msgid "Customer Return Shipment"
-msgstr "Remito de devolución de cliente"
+msgstr "Remito de devolución de Salida"
 
 msgctxt "model:stock.shipment.in,name:stock."
 msgid "Supplier Shipment"
-msgstr "Remitos proveedor"
+msgstr "Remitos Entrada"
 
 msgctxt "model:stock.shipment.in.return,name:stock."
 msgid "Supplier Return Shipment"
-msgstr "Remito devolución proveedor"
+msgstr "Remito devolución Entrada"
 
 msgctxt "model:stock.shipment.in.return.assign.failed,name:stock."
 msgid "Assign Supplier Return Shipment"
-msgstr "Reservar remito de devolución de proveedor"
+msgstr "Reservar remito de devolución de Entrada"
 
 msgctxt "model:stock.shipment.internal,name:stock."
 msgid "Internal Shipment"
@@ -300,15 +300,15 @@ msgstr "Reservar remito interno"
 
 msgctxt "model:stock.shipment.out,name:stock."
 msgid "Customer Shipment"
-msgstr "Remitos cliente"
+msgstr "Remitos Salida"
 
 msgctxt "model:stock.shipment.out.assign.failed,name:stock."
 msgid "Assign Customer Shipment"
-msgstr "Reservar remito de cliente"
+msgstr "Reservar remito de Salida"
 
 msgctxt "model:stock.shipment.out.return,name:stock."
 msgid "Customer Return Shipment"
-msgstr "Remito devolución cliente"
+msgstr "Remito devolución Salida"
 
 msgctxt "report:stock.shipment.in.restocking_list:stock."
 msgid "Shipment Number"
@@ -340,11 +340,11 @@ msgstr "Remitos"
 
 msgctxt "model:ir.ui.menu,name:stock.menu_shipment_in_form"
 msgid "Supplier Shipments"
-msgstr "Remitos de proveedor"
+msgstr "Remitos de Entrada"
 
 msgctxt "model:ir.ui.menu,name:stock.menu_shipment_in_return_form"
 msgid "Supplier Return Shipments"
-msgstr "Remitos de devolución de proveedor"
+msgstr "Remitos de devolución de Entrada"
 
 msgctxt "model:ir.ui.menu,name:stock.menu_shipment_internal_form"
 msgid "Internal Shipments"
@@ -352,9 +352,9 @@ msgstr "Remitos internos"
 
 msgctxt "model:ir.ui.menu,name:stock.menu_shipment_out_form"
 msgid "Customer Shipments"
-msgstr "Remitos de cliente"
+msgstr "Remitos de Salida"
 
 msgctxt "model:ir.ui.menu,name:stock.menu_shipment_out_return_form"
 msgid "Customer Return Shipments"
-msgstr "Remitos de devolución de cliente"
+msgstr "Remitos de devolución de Salida"
 
