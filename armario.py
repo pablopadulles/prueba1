@@ -14,8 +14,6 @@ from trytond import backend
 from trytond.tools.multivalue import migrate_property
 from trytond.tools import lstrip_wildcard
 import xlrd
-from .exceptions import (
-    InvalidIdentifierCode, VIESUnavailable, SimilarityWarning, EraseError)
 #
 # CATEGORIAS = [
 #     (None, ''),

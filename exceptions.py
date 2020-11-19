@@ -4,28 +4,8 @@ from trytond.exceptions import UserError, UserWarning
 from trytond.model.exceptions import ValidationError
 
 
-class InvalidIdentifierCode(ValidationError):
+class Invalidlocation(ValidationError):
     pass
-
-
-class InvalidPhoneNumber(ValidationError):
-    pass
-
-
-class VIESUnavailable(UserError):
-    pass
-
-
-class SimilarityWarning(UserWarning):
-    pass
-
 
 class EraseError(ValidationError):
-    pass
-
-
-class InvalidFormat(ValidationError):
-    pass
-
-class InvalidKM(ValidationError):
     pass
