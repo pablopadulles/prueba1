@@ -89,6 +89,8 @@ class Bono(Workflow, ModelView, ModelSQL):
     code = fields.Char('Numero', readonly=True)
     type = fields.Selection([
             (None, ''),
+            ('bidon', 'Bidon'),
+            ('aceite', 'Aceite'),
             ('nafta', 'Nafta'),
             ('gasoil', 'Gasoil')],
             'Combustible', required=True,
