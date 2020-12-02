@@ -678,9 +678,9 @@ class OrdenTrabajoCerradasWFX(ModelView, ModelSQL):
     fecha = fields.Date('Fecha')
     nro_abonado = fields.Char('Nro Abonado')
     nro_ot = fields.Char('Orden Trabajo', states={'required': True})
-    tecnico = fields.Many2One('party.party', 'Tecnico', domain=[
-            ('perfil', '=', 'tec'),
-        ])
+    tecnico = fields.Many2One('party.party', 'Tecnico',
+        domain=[('perfil', '=', 'tec')],
+        states={'required': True})
     central = fields.Many2One('oci.central.telecom', 'Zona')
     armario = fields.Many2One('oci.armario', 'Armario', domain=[
             ('central', '=', Eval('central')),
@@ -696,6 +696,8 @@ class OrdenTrabajoCerradasWFX(ModelView, ModelSQL):
     observaciones = fields.Text('Observaciones')
     materiales = fields.One2Many('oci.materiales', 'name', 'Materiales')
     sistema = fields.Selection([('wfx', 'WFX'),('segat', 'SEGAT')], 'Sistema')
+    veiculo = fields.Many2One('oci.vehiculo', 'Veiculo')
+
     #UPDATE oci_orden_trabajo_cerradas_wfx set sistema = 'wfx'
 
     @classmethod
@@ -729,7 +731,7 @@ class Tarea(ModelView, ModelSQL):
 
     name = fields.Char('Nombre', required=True)
     code = fields.Char('Codigo')
-    loc = fields.One2Many('oci.tarea.loc', 'tarea', 'Localizacion')
+    loc = fields.One2Many('oci.tarea.loc', 'tarea', 'Localizacion', order=[('name', 'ASC')])
 
 
 class LocalizacionTarea(ModelView, ModelSQL):

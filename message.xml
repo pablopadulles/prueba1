@@ -6,5 +6,11 @@ this repository contains the full copyright notices and license terms. -->
         <record model="ir.message" id="msg_invalid_location">
             <field name="text">El deposito seleccionado ya esta en uso.</field>
         </record>
+        <record model="ir.message" id="msg_cod_tec">
+            <field name="text">El Cod Tec seleccionado ya esta en uso.</field>
+        </record>
+        <record model="ir.message" id="msg_dni">
+            <field name="text">El DNI ya esta en uso.</field>
+        </record>
     </data>
 </tryton>

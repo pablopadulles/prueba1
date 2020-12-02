@@ -16,7 +16,7 @@ from trytond import backend
 from trytond.tools.multivalue import migrate_property
 from trytond.tools import lstrip_wildcard
 from .exceptions import (
-    Invalidlocation)
+    Invalidlocation, EraseError)
 
 
 class Party(metaclass=PoolMeta):
@@ -28,7 +28,7 @@ class Party(metaclass=PoolMeta):
     password = fields.Function(fields.Char(
             "Password"),
         getter='get_password', setter='set_password')
-    dni = fields.Char('DNI')
+    dni = fields.Char('DNI', states={'required': Bool(Eval('perfil', False))})
     cel_teco = fields.Char('Celular Teco')
     cel = fields.Char('Celular')
     legajo = fields.Char('Legajo', states={'required': Bool(Eval('perfil', False))})
@@ -96,6 +96,32 @@ class Party(metaclass=PoolMeta):
                         'password_hash': value,
                         }])
         cls.write(*to_write)
+
+    @classmethod
+    def validate(cls, partys):
+        super(Party, cls).validate(partys)
+        cls.check_location(partys)
+        cls.check_identificadores(partys)
+
+
+    @classmethod
+    def check_identificadores(cls, partys):
+        for party in partys:
+            if party.location:
+                if len((cls.search([('location', '=', party.location)]))):
+                    raise Invalidlocation(
+                        gettext('oci.msg_invalid_location'))
+
+    @classmethod
+    def check_location(cls, partys):
+        for party in partys:
+            if party.perfil in ['tec', 'chofer']:
+                if len((cls.search([('dni', '=', party.dni)]))) > 1:
+                    raise EraseError(
+                        gettext('oci.msg_dni'))
+                if len((cls.search([('cod_tec', '=', party.cod_tec)]))) > 1:
+                    raise EraseError(
+                        gettext('oci.msg_cod_tec'))
 
 
 class Tarea(ModelView, ModelSQL):
