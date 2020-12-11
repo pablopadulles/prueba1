@@ -100,9 +100,7 @@ class Party(metaclass=PoolMeta):
     @classmethod
     def validate(cls, partys):
         super(Party, cls).validate(partys)
-        cls.check_location(partys)
         cls.check_identificadores(partys)
-
 
     @classmethod
     def check_identificadores(cls, partys):
