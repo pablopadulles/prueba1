@@ -103,7 +103,7 @@ class Party(metaclass=PoolMeta):
         cls.check_identificadores(partys)
 
     @classmethod
-    def check_identificadores(cls, partys):
+    def check_location(cls, partys):
         for party in partys:
             if party.location:
                 if len((cls.search([('location', '=', party.location)]))):
@@ -111,7 +111,7 @@ class Party(metaclass=PoolMeta):
                         gettext('oci.msg_invalid_location'))
 
     @classmethod
-    def check_location(cls, partys):
+    def check_identificadores(cls, partys):
         for party in partys:
             if party.perfil in ['tec', 'chofer']:
                 if len((cls.search([('dni', '=', party.dni)]))) > 1:
