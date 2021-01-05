@@ -710,6 +710,7 @@ class OrdenTrabajoCerradasWFX(ModelView, ModelSQL):
     def on_change_tecnico(self):
         if not self.tecnico:
            return
+        #lala
         self.cod_tec = self.tecnico.cod_tec or None
         self.celular = self.tecnico.cel_teco or None
 
